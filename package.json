@@ -1,0 +1,20 @@
+{
+    "name": "webapp-boilerplate",
+    "version": "1.0.0",
+    "description": "Boilerplate for Webapplications with Bootstrap, Marko.js & Lasso",
+    "main": "index.js",
+    "scripts": {
+        "start": "node .",
+        "dev": "node ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Teddy95/webapp-boilerplate.git"
+    },
+    "author": "Andre Sieverding",
+    "license": "WTFPL",
+    "bugs": {
+        "url": "https://github.com/Teddy95/webapp-boilerplate/issues"
+    },
+    "homepage": "https://github.com/Teddy95/webapp-boilerplate#readme"
+}
