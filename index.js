@@ -1,21 +1,48 @@
-require("marko/node-require"); // Allow Node.js to require and load `.marko` files
+/**
+ * Autor: Andre Sieverding
+ * Copyright © 2019
+ */
 
-var express = require("express");
-var markoExpress = require("marko/express");
-var template = require("./view/index.marko");
+// Allow Node.js to require and load `.marko` files
+require("marko/node-require")
 
-var app = express();
+// Include required packages
+var express = require("express")
+var markoExpress = require("marko/express")
+var lasso = require('lasso')
+var template = require("./template")
 
-app.use(markoExpress()); //enable res.marko(template, data)
+var app = express()
 
+// Enable res.marko(template, data)
+app.use(markoExpress())
+
+// Configure lasso to control how JS/CSS/etc. is delivered to the browser
+lasso.configure({
+	plugins: [
+		'lasso-marko',
+		'lasso-sass'
+	],
+	outputDir: __dirname + '/static',
+	bundlingEnabled: true,
+	minify: true
+})
+
+app.use(require('lasso/middleware').serveStatic())
+
+// Routes / Views
 app.get("/", function(req, res) {
 	res.marko(template, {
-		name: "Frank",
-		count: 30,
-		colors: ["red", "green", "blue"]
-	});
-});
+        view: "./view/start.marko",
+        $global: {
+            view: "view/start.marko",
+            serializedGlobals: {
+                data: true
+            }
+        }
+	})
+})
 
-app.listen(8080);
+app.listen(8080)
 
-console.log("Server is listening on port 8080!");
+console.log("Server is listening on port 8080!")

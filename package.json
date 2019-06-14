@@ -26,6 +26,7 @@
         "lasso": "^3.3.0",
         "lasso-marko": "^2.4.7",
         "lasso-require": "^3.5.0",
+        "lasso-sass": "^3.0.0",
         "marko": "^4.18.0"
     }
 }

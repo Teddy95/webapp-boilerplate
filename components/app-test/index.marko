@@ -1,0 +1,12 @@
+class {
+	onCreate (input, out) {
+		var view = require('../../' + out.global.view)
+
+		this.state = {
+			view: viewComponent,
+			filter: false
+		}
+	}
+}
+
+${state.view}
