@@ -45,7 +45,7 @@ app.use(require('lasso/middleware').serveStatic())
 // Routes / Views
 app.get("/", function(req, res) {
 	res.marko(template, {
-        view: "./view/start.marko",
+        title: "Hello World!",
         $global: {
             view: "view/start.marko",
             serializedGlobals: {
