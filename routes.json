@@ -1,0 +1,7 @@
+[
+	{
+		"route": "/",
+		"title": "Hello World!",
+		"view": "start.marko"
+	}
+]

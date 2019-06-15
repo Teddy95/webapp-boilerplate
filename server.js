@@ -17,6 +17,10 @@ var template = require("./template")
 var config = fs.readFileSync('config.json')
 config = JSON.parse(config)
 
+// Read routes
+var routes = fs.readFileSync('routes.json')
+routes = JSON.parse(routes)
+
 // Create Express App
 var app = express()
 
@@ -42,17 +46,19 @@ lasso.configure({
 
 app.use(require('lasso/middleware').serveStatic())
 
-// Routes / Views
-app.get("/", function(req, res) {
-	res.marko(template, {
-        title: "Hello World!",
-        $global: {
-            view: "view/start.marko",
-            serializedGlobals: {
-                data: true
+// Include Routes / Views
+routes.forEach(route => {
+    app.get(route.route, function(req, res) {
+    	res.marko(template, {
+            title: route.title,
+            $global: {
+                view: "view/" + route.view,
+                serializedGlobals: {
+                    data: true
+                }
             }
-        }
-	})
+    	})
+    })
 })
 
 app.listen(config.port)
