@@ -14,6 +14,12 @@ var template = require("./template")
 
 var app = express()
 
+// Grant access for static files
+// Satic files: assets/ directory
+app.use('/assets', express.static('assets'), (req, res, next) => {
+	next()
+})
+
 // Enable res.marko(template, data)
 app.use(markoExpress())
 

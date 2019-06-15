@@ -1,4 +1,7 @@
 
+# Ignore Assets
+assets/
+
 # Ignore compiled Marko files
 *.marko.js
 
