@@ -31,5 +31,6 @@
         "lasso-require": "^3.5.0",
         "lasso-sass": "^3.0.0",
         "marko": "^4.18.0"
-    }
+    },
+    "devDependencies": {}
 }
