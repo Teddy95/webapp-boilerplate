@@ -9,9 +9,15 @@ require("marko/node-require")
 // Include required packages
 var express = require("express")
 var markoExpress = require("marko/express")
-var lasso = require('lasso')
+var lasso = require("lasso")
+var fs = require("fs")
 var template = require("./template")
 
+// Read App configurations
+var config = fs.readFileSync('config.json')
+config = JSON.parse(config)
+
+// Create Express App
 var app = express()
 
 // Grant access for static files
@@ -49,6 +55,6 @@ app.get("/", function(req, res) {
 	})
 })
 
-app.listen(8080)
+app.listen(config.port)
 
-console.log("Server is listening on port 8080!")
+console.log(`Server is listening on port ${config.port}!`)
