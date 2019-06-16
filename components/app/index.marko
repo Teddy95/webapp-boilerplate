@@ -1,10 +1,14 @@
+/**
+ * Autor: Andre Sieverding
+ * Copyright © 2019
+ */
+
 class {
 	onCreate (input, out) {
 		var view = require('../../' + out.global.view)
 
 		this.state = {
-			view: view,
-			filter: false
+			view: view
 		}
 	}
 }
