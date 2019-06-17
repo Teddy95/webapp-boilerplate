@@ -51,8 +51,8 @@ routes.forEach(route => {
     app.get(route.route, function(req, res) {
     	res.marko(template, {
             title: route.title,
+            view: "view/" + route.view,
             $global: {
-                view: "view/" + route.view,
                 serializedGlobals: {
                     data: true
                 }
