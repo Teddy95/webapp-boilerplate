@@ -5,7 +5,7 @@
 
 class {
 	onCreate (input, out) {
-		var view = require('../../' + input.view)
+		var view = require('../../' + out.global.view)
 
 		this.state = {
 			view: view

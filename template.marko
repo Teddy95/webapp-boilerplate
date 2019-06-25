@@ -9,10 +9,10 @@ lasso-page package-path="./browser.json"
 html lang="en"
     head
         meta charset="utf-8"
-        title -- ${data.title}
+        title -- ${out.global.title}
         link rel="stylesheet" href="assets/css/style.css" type="text/css"
         lasso-head
     body
-        app view=data.view
+        app
         lasso-body
         browser-refresh

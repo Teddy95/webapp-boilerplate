@@ -50,11 +50,14 @@ app.use(require('lasso/middleware').serveStatic())
 routes.forEach(route => {
     app.get(route.route, function(req, res) {
     	res.marko(template, {
-            title: route.title,
-            view: "view/" + route.view,
             $global: {
+                title: route.title,
+                view: "view/" + route.view,
+                route: route.route,
                 serializedGlobals: {
-                    data: true
+                    view: true,
+                    title: true,
+                    route: true
                 }
             }
     	})
