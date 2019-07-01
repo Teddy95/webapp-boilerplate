@@ -26,7 +26,7 @@ var app = express()
 
 // Grant access for static files
 // Satic files: assets/ directory
-app.use('/assets', express.static('assets'), (req, res, next) => {
+app.use(config.path + '/assets', express.static('assets'), (req, res, next) => {
 	next()
 })
 
@@ -40,6 +40,7 @@ lasso.configure({
 		'lasso-sass'
 	],
 	outputDir: __dirname + '/static',
+    urlPrefix: config.path + '/static',
 	bundlingEnabled: true,
 	minify: true
 })
@@ -48,7 +49,7 @@ app.use(require('lasso/middleware').serveStatic())
 
 // Include Routes / Views
 routes.forEach(route => {
-    app.get(route.route, (req, res) => {
+    app.get(config.path + route.route, (req, res) => {
     	res.marko(template, {
             $global: {
                 title: route.title,
@@ -66,6 +67,8 @@ routes.forEach(route => {
     })
 })
 
-app.listen(config.port)
+var port = process.env.PORT || config.port
 
-console.log(`Server is listening on port ${config.port}!`)
+app.listen(port)
+
+console.log(`Server is listening on port ${port}!`)
