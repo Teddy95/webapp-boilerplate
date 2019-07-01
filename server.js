@@ -55,11 +55,13 @@ routes.forEach(route => {
                 title: route.title,
                 view: "view/" + route.view,
                 route: route.route,
+                path: config.path,
                 params: req.params,
                 serializedGlobals: {
                     view: true,
                     title: true,
                     route: true,
+                    path: true,
                     params: true
                 }
             }
