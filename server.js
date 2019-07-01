@@ -37,7 +37,7 @@ app.use(markoExpress())
 lasso.configure({
 	plugins: [
 		'lasso-marko',
-		'lasso-sass'
+		// 'lasso-sass'
 	],
 	outputDir: __dirname + '/static',
     urlPrefix: config.path + '/static',

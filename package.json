@@ -5,9 +5,14 @@
     "main": "server.js",
     "scripts": {
         "start": "node .",
+        "start-app": "electron app.js",
         "dev": "gulp compile:sass && browser-refresh server.js && node .",
         "compile": "gulp compile:sass",
-        "watch": "gulp watch"
+        "watch": "gulp watch",
+        "package-mac": "gulp package-mac",
+        "package-windows": "gulp package-windows",
+        "package-linux": "gulp package-linux",
+        "release": "gulp release"
     },
     "repository": {
         "type": "git",
@@ -24,6 +29,7 @@
         "express": "^4.17.1",
         "gulp": "^4.0.2",
         "gulp-sass": "^4.0.2",
+        "gulp-shell": "^0.7.1",
         "lasso": "^3.3.0",
         "lasso-marko": "^2.4.7",
         "lasso-require": "^3.5.0",
@@ -32,6 +38,15 @@
     },
     "devDependencies": {
         "browser-refresh": "^1.7.3",
-        "browser-refresh-taglib": "^1.1.0"
+        "browser-refresh-taglib": "^1.1.0",
+        "electron": "^5.0.6",
+        "electron-packager": "^14.0.0"
+    },
+    "build": {
+        "icon": {
+            "mac": "assets/icons/icon.icns",
+            "windows": "assets/icons/icon.ico",
+            "linux": "assets/icons/icon.png"
+        }
     }
 }

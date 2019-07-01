@@ -1,6 +1,9 @@
 
+# Ignore compiled desktop apps
+release/
+
 # Ignore Assets
-assets/
+assets/css/
 
 # Ignore compiled Marko files
 *.marko.js
