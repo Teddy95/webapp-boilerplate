@@ -6,8 +6,8 @@
     "scripts": {
         "start": "node .",
         "start-app": "electron app.js",
-        "dev": "gulp compile:sass && rollup -c rollup.config.js && browser-refresh server.js && node .",
-        "compile": "gulp compile:sass && rollup -c rollup.config.js",
+        "dev": "gulp compile:sass && webpack --config webpack.config.js && browser-refresh server.js && node .",
+        "compile": "gulp compile:sass && webpack --config webpack.config.js",
         "watch": "gulp watch",
         "package-mac": "gulp package-mac",
         "package-windows": "gulp package-windows",
@@ -34,14 +34,14 @@
     "devDependencies": {
         "browser-refresh": "^1.7.3",
         "browser-refresh-taglib": "^1.1.0",
+        "css-loader": "^3.0.0",
         "electron": "^5.0.6",
         "electron-packager": "^14.0.0",
-        "envify": "^4.1.0",
-        "markoify": "^2.2.2",
-        "rollup": "^1.16.4",
-        "rollup-plugin-browserify-transform": "^1.0.1",
-        "rollup-plugin-commonjs": "^10.0.1",
-        "rollup-plugin-node-resolve": "^5.2.0"
+        "marko-loader": "^1.5.0",
+        "sass-loader": "^7.1.0",
+        "style-loader": "^0.23.1",
+        "webpack": "^4.35.2",
+        "webpack-cli": "^3.3.5"
     },
     "build": {
         "icon": {

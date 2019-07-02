@@ -38,7 +38,7 @@ routes.forEach(route => {
     	res.marko(template, {
             $global: {
                 title: route.title,
-                view: "view/" + route.view,
+                view: route.view,
                 route: route.route,
                 path: config.path,
                 params: req.params,
