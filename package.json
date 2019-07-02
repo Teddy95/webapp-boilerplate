@@ -6,8 +6,8 @@
     "scripts": {
         "start": "node .",
         "start-app": "electron app.js",
-        "dev": "gulp compile:sass && browser-refresh server.js && node .",
-        "compile": "gulp compile:sass",
+        "dev": "gulp compile:sass && rollup -c rollup.config.js && browser-refresh server.js && node .",
+        "compile": "gulp compile:sass && rollup -c rollup.config.js",
         "watch": "gulp watch",
         "package-mac": "gulp package-mac",
         "package-windows": "gulp package-windows",
@@ -25,22 +25,23 @@
     },
     "homepage": "https://github.com/Teddy95/webapp-boilerplate#readme",
     "dependencies": {
-        "@lasso/marko-taglib": "^1.0.15",
         "express": "^4.17.1",
         "gulp": "^4.0.2",
         "gulp-sass": "^4.0.2",
         "gulp-shell": "^0.7.1",
-        "lasso": "^3.3.0",
-        "lasso-marko": "^2.4.7",
-        "lasso-require": "^3.5.0",
-        "lasso-sass": "^3.0.0",
         "marko": "^4.18.0"
     },
     "devDependencies": {
         "browser-refresh": "^1.7.3",
         "browser-refresh-taglib": "^1.1.0",
         "electron": "^5.0.6",
-        "electron-packager": "^14.0.0"
+        "electron-packager": "^14.0.0",
+        "envify": "^4.1.0",
+        "markoify": "^2.2.2",
+        "rollup": "^1.16.4",
+        "rollup-plugin-browserify-transform": "^1.0.1",
+        "rollup-plugin-commonjs": "^10.0.1",
+        "rollup-plugin-node-resolve": "^5.2.0"
     },
     "build": {
         "icon": {
