@@ -7,7 +7,7 @@
 const { app, BrowserWindow } = require('electron')
 
 // Include Webapplication
-require('./server')
+// require('./server')
 
 let mainWindow
 
@@ -18,7 +18,8 @@ function createWindow () {
 		height: 600
 	})
 
-	mainWindow.loadURL('http://localhost:8080')
+	// mainWindow.loadURL('http://localhost:8080')
+	mainWindow.loadFile(__dirname + './template.html')
 
 	mainWindow.on('closed', () => {
 		mainWindow = null
