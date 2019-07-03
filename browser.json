@@ -1,7 +1,0 @@
-{
-	"dependencies": [
-		"./components/*.marko",
-		"./view/*.marko",
-		"./template.marko"
-	]
-}

@@ -3,16 +3,13 @@
  * Copyright © 2019
  */
 
-lasso-page package-path="./browser.json"
-
 <!doctype html>
 html lang="en"
     head
         meta charset="utf-8"
         title -- ${out.global.title}
+        meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
         link rel="stylesheet" href=`${out.global.path}/assets/css/style.css` type="text/css"
-        lasso-head
     body
         app
-        lasso-body
-        browser-refresh
+        script type="text/javascript" src=`${out.global.path}/assets/js/bundle.min.js` language="javascript"

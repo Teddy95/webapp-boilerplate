@@ -1,4 +1,7 @@
 
+# Ignore compiled desktop apps
+release/
+
 # Ignore Assets
 assets/
 
