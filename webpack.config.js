@@ -1,11 +1,11 @@
+var path = require('path')
+
 module.exports = {
-	// mode: 'development',
-	mode: 'production',
 	entry: './client.js',
 	output: {
-		path: __dirname,
-		filename: 'assets/js/bundle.js',
-		// filename: 'assets/js/bundle.min.js'
+		path: path.join(__dirname, 'assets', 'js'),
+		publicPath: path.join(__dirname, 'assets', 'js'),
+		filename: 'bundle.min.js'
 	},
 	resolve: {
 		extensions: ['.js', '.marko']
