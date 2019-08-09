@@ -5,9 +5,7 @@
 
 class {
 	onCreate (input, out) {
-		// var view = require(`../../view/${out.global.view}`)
-		// var view = require("../../view/" + out.global.view)
-		var view = require("../../view/start.marko")
+		var view = require(`../../view/${out.global.view}`)
 
 		this.state = {
 			view: view
