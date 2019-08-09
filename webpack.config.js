@@ -53,6 +53,7 @@ module.exports = [
         optimization: {
             minimize: false
         },
+        entry: './app',
         output: {
             libraryTarget: "commonjs2",
             path: path.join(__dirname, "dist/server")
