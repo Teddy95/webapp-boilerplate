@@ -2,7 +2,7 @@
 
 ### Use this boilerplate as template
 
-![Use this Template](assets/image/use-template.png)
+![Use this Template](assets/use-template.png)
 
 First of all, use this repository as template for your new web application by clicking the green button on top of this repository. After that, you have to clone your new repository to your local pc.
 

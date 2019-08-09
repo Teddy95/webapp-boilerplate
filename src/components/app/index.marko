@@ -1,0 +1,18 @@
+/**
+ * Autor: Andre Sieverding
+ * Copyright © 2019
+ */
+
+class {
+	onCreate (input, out) {
+		// var view = require(`../../view/${out.global.view}`)
+		// var view = require("../../view/" + out.global.view)
+		var view = require("../../view/start.marko")
+
+		this.state = {
+			view: view
+		}
+	}
+}
+
+${state.view}

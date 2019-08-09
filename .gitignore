@@ -1,13 +1,14 @@
 
 # Ignore Assets
-assets/
+#assets/
 
 # Ignore compiled Marko files
 *.marko.js
 
-# Ignore Lasso chached files
+# Ignore generated files
 .cache/
 static/
+dist/
 
 # Created by https://www.gitignore.io/api/node,linux,macos,windows
 # Edit at https://www.gitignore.io/?templates=node,linux,macos,windows

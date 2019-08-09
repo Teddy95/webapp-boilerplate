@@ -2,12 +2,11 @@
     "name": "webapp-boilerplate",
     "version": "1.0.0",
     "description": "Boilerplate for Webapplications with Bootstrap, Marko.js & Lasso",
-    "main": "server.js",
+    "main": "dist/server/main.js",
     "scripts": {
-        "start": "node .",
-        "dev": "gulp compile:dev",
-        "compile": "gulp compile",
-        "watch": "gulp watch"
+        "start": "node dist/server/main.js",
+        "dev": "webpack-dev-server",
+        "compile": "webpack --progress"
     },
     "repository": {
         "type": "git",
@@ -20,18 +19,26 @@
     },
     "homepage": "https://github.com/Teddy95/webapp-boilerplate#readme",
     "dependencies": {
+        "compression": "^1.7.4",
         "express": "^4.17.1",
-        "gulp": "^4.0.2",
-        "gulp-sass": "^4.0.2",
-        "gulp-shell": "^0.7.1",
-        "marko": "^4.18.0"
+        "marked": "^0.7.0",
+        "marko": "^4.18.10",
+        "node-sass": "^4.12.0",
+        "sass-loader": "^7.2.0",
+        "serve-static": "^1.14.1"
     },
     "devDependencies": {
+        "@marko/webpack": "^1.2.0",
+        "clean-webpack-plugin": "^3.0.0",
         "css-loader": "^3.0.0",
-        "marko-loader": "^1.5.0",
-        "sass-loader": "^7.1.0",
-        "style-loader": "^0.23.1",
-        "webpack": "^4.35.2",
-        "webpack-cli": "^3.3.5"
+        "file-loader": "^4.0.0",
+        "ignore-emit-webpack-plugin": "^2.0.2",
+        "mini-css-extract-plugin": "^0.8.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "spawn-server-webpack-plugin": "^4.0.0",
+        "svg-url-loader": "^3.0.0",
+        "webpack": "^4.36.1",
+        "webpack-cli": "^3.3.6",
+        "webpack-dev-server": "^3.7.2"
     }
 }
