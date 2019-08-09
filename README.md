@@ -45,12 +45,12 @@ $ npm run dev
 
 ### Add routes / views
 
-Add a new route in `/routes.json` and the matching view in the `/view` directory as `.marko` file.
+Add a new route in `/routes.json` and the matching view in the `/app/view` directory as `.marko` file.
 
 ### Components
 
-Components are written in [marko.js](https://github.com/marko-js/marko). Add new components in the `/components` directory.
+Components are written in [marko.js](https://github.com/marko-js/marko). Add new components in the `/app/components` directory.
 
-### Assets (Scss)
+### Stylesheets
 
-Write your stylesheets in CSS or SCSS and save them to `/src/sass` and import them to `style.scss`. This stylesheet file will be compiled and included in your application html head.
+Write your stylesheets in CSS or SCSS and save them to `/app/style` and import them to `style.scss`. This stylesheet file will be compiled and included in your application.
