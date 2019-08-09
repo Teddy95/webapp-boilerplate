@@ -1,3 +1,7 @@
+/**
+ * https://github.com/marko-js-samples/marko-webpack
+ */
+
 const path = require("path");
 const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -13,101 +17,101 @@ const markoPlugin = new MarkoPlugin();
 const spawnedServer = isDev && new SpawnServerPlugin();
 
 module.exports = [
-  compiler({
-    name: "Client",
-    optimization: {
-      splitChunks: {
-        chunks: "all",
-        maxInitialRequests: 3
-      }
-    },
-    output: {
-      filename: "[name].[contenthash:8].js",
-      path: path.join(__dirname, "dist/client")
-    },
-    devServer: isDev ? {
-      overlay: true,
-      stats: "minimal",
-      contentBase: false,
-      ...spawnedServer.devServerConfig
-    }: undefined,
-    plugins: [
-      new webpack.DefinePlugin({
-        "process.browser": true
-      }),
-      new CSSExtractPlugin({
-        filename: "[name].[contenthash:8].css"
-      }),
-      isProd && new OptimizeCssAssetsPlugin(),
-      markoPlugin.browser
-    ]
-  }),
-  compiler({
-    name: "Server",
-    target: "async-node",
-    externals: [/^[^./!]/], // excludes node_modules
-    optimization: {
-      minimize: false
-    },
-    output: {
-      libraryTarget: "commonjs2",
-      path: path.join(__dirname, "dist/server")
-    },
-    plugins: [
-      new webpack.DefinePlugin({
-        "process.browser": undefined,
-        "process.env.BUNDLE": true
-      }),
-      new webpack.BannerPlugin({
-        banner: 'require("source-map-support").install();',
-        raw: true
-      }),
-      new CSSExtractPlugin({
-        filename: "[name].[contenthash:8].css"
-      }),
-      isDev && spawnedServer,
-      markoPlugin.server
-    ]
-  })
+    compiler({
+        name: "Client",
+        optimization: {
+            splitChunks: {
+                chunks: "all",
+                maxInitialRequests: 3
+            }
+        },
+        output: {
+            filename: "[name].[contenthash:8].js",
+            path: path.join(__dirname, "dist/client")
+        },
+        devServer: isDev ? {
+            overlay: true,
+            stats: "minimal",
+            contentBase: false,
+            ...spawnedServer.devServerConfig
+        }: undefined,
+        plugins: [
+            new webpack.DefinePlugin({
+                "process.browser": true
+            }),
+            new CSSExtractPlugin({
+                filename: "[name].[contenthash:8].css"
+            }),
+            isProd && new OptimizeCssAssetsPlugin(),
+            markoPlugin.browser
+        ]
+    }),
+    compiler({
+        name: "Server",
+        target: "async-node",
+        externals: [/^[^./!]/], // excludes node_modules
+        optimization: {
+            minimize: false
+        },
+        output: {
+            libraryTarget: "commonjs2",
+            path: path.join(__dirname, "dist/server")
+        },
+        plugins: [
+            new webpack.DefinePlugin({
+                "process.browser": undefined,
+                "process.env.BUNDLE": true
+            }),
+            new webpack.BannerPlugin({
+                banner: 'require("source-map-support").install();',
+                raw: true
+            }),
+            new CSSExtractPlugin({
+                filename: "[name].[contenthash:8].css"
+            }),
+            isDev && spawnedServer,
+            markoPlugin.server
+        ]
+    })
 ];
 
 // Shared config for both server and client compilers.
 function compiler(config) {
-  return {
-    ...config,
-    mode: isProd ? "production" : "development",
-    devtool: isProd ? "source-map" : "inline-source-map",
-    output: {
-      publicPath: "/static/",
-      ...config.output
-    },
-    resolve: {
-      extensions: [".js", ".json", ".marko"]
-    },
-    module: {
-      rules: [
-        {
-          test: /\.marko$/,
-          loader: "@marko/webpack/loader"
+    return {
+        ...config,
+        mode: isProd ? "production" : "development",
+        devtool: isProd ? "source-map" : "inline-source-map",
+        output: {
+            publicPath: "/static/",
+            ...config.output
         },
-        {
-          test: /\.(sass|scss|css)$/,
-          use: [CSSExtractPlugin.loader, "css-loader", "sass-loader"]
+        resolve: {
+            extensions: [".js", ".json", ".marko"]
         },
-        {
-          test: /\.svg/,
-          loader: "svg-url-loader"
+        module: {
+            rules: [
+                {
+                    test: /\.marko$/,
+                    loader: "@marko/webpack/loader"
+                },
+                {
+                    test: /\.(sass|scss|css)$/,
+                    use: [CSSExtractPlugin.loader, "css-loader", "sass-loader"]
+                },
+                {
+                    test: /\.svg/,
+                    loader: "svg-url-loader"
+                },
+                {
+                    test: /\.(jpg|jpeg|gif|png)$/,
+                    loader: "file-loader",
+                    options: {
+                        // File assets from server & browser compiler output to client folder.
+                        outputPath: "../client"
+                    }
+                }
+            ]
         },
-        {
-          test: /\.(jpg|jpeg|gif|png)$/,
-          loader: "file-loader",
-          options: {
-            // File assets from server & browser compiler output to client folder.
-            outputPath: "../client"
-          }
-        }
-      ]
-    },
-    plugins: [...config.plugins, isProd && new CleanWebpackPlugin()].filter(Boolean)
-  };
+        plugins: [...config.plugins, isProd && new CleanWebpackPlugin()].filter(Boolean)
+    };
 }

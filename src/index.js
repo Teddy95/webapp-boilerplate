@@ -1,7 +1,7 @@
 /**
-* Autor: Andre Sieverding
-* Copyright © 2019
-*/
+ * Autor: Andre Sieverding
+ * Copyright © 2019
+ */
 
 // Import required packages
 import express from 'express'
