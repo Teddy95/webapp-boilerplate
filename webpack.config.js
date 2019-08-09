@@ -104,7 +104,7 @@ function compiler(config) {
                     loader: "svg-url-loader"
                 },
                 {
-                    test: /\.(jpg|jpeg|gif|png)$/,
+                    test: /\.(jpg|jpeg|gif|png|ico)$/,
                     loader: "file-loader",
                     options: {
                         // File assets from server & browser compiler output to client folder.
