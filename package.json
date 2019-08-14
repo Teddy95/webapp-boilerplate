@@ -1,7 +1,7 @@
 {
     "name": "webapp-boilerplate",
     "version": "1.0.0",
-    "description": "Boilerplate for Webapplications with Bootstrap, Marko.js & Lasso",
+    "description": "Boilerplate for Node.js webapplications with Express.js, Marko.js & Webpack",
     "main": "dist/server/main.js",
     "scripts": {
         "start": "node dist/server/main.js",

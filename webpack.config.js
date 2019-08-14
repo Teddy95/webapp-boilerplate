@@ -1,5 +1,5 @@
 /**
- * https://github.com/marko-js-samples/marko-webpack
+ * Inspired by https://github.com/marko-js-samples/marko-webpack
  */
 
 const path = require("path");
