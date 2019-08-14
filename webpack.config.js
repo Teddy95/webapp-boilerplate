@@ -2,19 +2,24 @@
  * Inspired by https://github.com/marko-js-samples/marko-webpack
  */
 
-const path = require("path");
-const webpack = require("webpack");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MarkoPlugin = require("@marko/webpack/plugin").default;
-const CSSExtractPlugin = require("mini-css-extract-plugin");
-const SpawnServerPlugin = require("spawn-server-webpack-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const path = require("path")
+const fs = require("fs")
+const webpack = require("webpack")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const MarkoPlugin = require("@marko/webpack/plugin").default
+const CSSExtractPlugin = require("mini-css-extract-plugin")
+const SpawnServerPlugin = require("spawn-server-webpack-plugin")
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 
-const { NODE_ENV } = process.env;
-const isProd = NODE_ENV === "production";
-const isDev = !isProd;
-const markoPlugin = new MarkoPlugin();
-const spawnedServer = isDev && new SpawnServerPlugin();
+// Read App configurations
+var config = fs.readFileSync('config.json')
+config = JSON.parse(config)
+
+const { NODE_ENV } = config.mode
+const isProd = NODE_ENV === "production"
+const isDev = !isProd
+const markoPlugin = new MarkoPlugin()
+const spawnedServer = isDev && new SpawnServerPlugin()
 
 module.exports = [
     compiler({
@@ -74,7 +79,7 @@ module.exports = [
             markoPlugin.server
         ]
     })
-];
+]
 
 // Shared config for both server and client compilers.
 function compiler(config) {
@@ -107,12 +112,20 @@ function compiler(config) {
                     test: /\.(jpg|jpeg|gif|png|ico)$/,
                     loader: "file-loader",
                     options: {
-                        // File assets from server & browser compiler output to client folder.
-                        outputPath: "../client"
+                        outputPath: "../client/images",
+                        publicPath: "/static/images"
+                    }
+                },
+                {
+                    test: /\.(woff|woff2|ttf|eot)$/,
+                    loader: "file-loader",
+                    options: {
+                        outputPath: "../client/webfonts",
+                        publicPath: "/static/webfonts"
                     }
                 }
             ]
         },
         plugins: [...config.plugins, isProd && new CleanWebpackPlugin()].filter(Boolean)
-    };
+    }
 }
