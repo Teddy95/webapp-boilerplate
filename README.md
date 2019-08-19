@@ -20,13 +20,13 @@ Install all node modules to get things work.
 $ npm install
 ```
 
-### Compile application
+### Build application
 
 Before you start your web application, you have to compile the app. This step is required bevor the first run and after every file change.
 
 ```bash
-# Compile your webapp
-$ npm run compile
+# Build your webapp
+$ npm run build
 ```
 
 ### Run application
