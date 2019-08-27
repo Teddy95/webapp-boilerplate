@@ -54,3 +54,21 @@ Components are written in [marko.js](https://github.com/marko-js/marko). Add new
 ### Stylesheets
 
 Write your stylesheets in CSS or SCSS and save them to `/app/style` and import them to `style.scss`. This stylesheet file will be compiled and included in your application.
+
+## Docker Container
+
+### Build Image from Dockerfile
+
+```bash
+$ docker build -t <username>/<image> .
+```
+
+### Run Container from Image
+
+The following command start a docker container from your image and map port 8080 to port 3000.
+
+```bash
+$ docker run -it -p 3000:8080 <username>/<image>
+```
+
+After running the commands above, go to: <http://localhost:3000>
