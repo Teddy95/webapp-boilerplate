@@ -1,5 +1,7 @@
 # Webapp Boilerplate
 
+![Screenshot](app/assets/images/screenshot.png)
+
 ### Use this boilerplate as template
 
 ![Use this Template](app/assets/images/use-template.png)
