@@ -45,7 +45,7 @@ $ npm run dev
 
 ### Add routes / views
 
-Add a new route in `/routes.json` and the matching view in the `/app/view` directory as `.marko` file.
+Add a new route in `/app/routes.json` and the matching view in the `/app/view` directory as `.marko` file.
 
 ### Components
 

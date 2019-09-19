@@ -1,26 +1,24 @@
 class {
-	onCreate() {
-		this.state = { count:0 };
+	onCreate () {
+		this.state = {
+			count: 0
+		}
 	}
-	increment() {
-		this.state.count++;
+
+	increment () {
+		this.state.count++
 	}
 }
 
 style {
 	.count {
-		color:#ff9500;
-		font-size:3em;
-	}
-	.example-button {
-		font-size:1em;
-		padding:0.5em;
+		color: #ff9500;
+		font-size: 3em;
 	}
 }
 
-<div.count>
-	${state.count}
-</div>
-<button.example-button on-click('increment')>
-	Click me! ♥
-</button>
+div.count
+	-- ${state.count}
+
+button.btn.btn-primary on-click('increment')
+	-- Click me! <i.fas.fa-rocket></i>

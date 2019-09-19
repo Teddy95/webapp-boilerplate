@@ -3,15 +3,18 @@
  * Copyright © 2019
  */
 
-style.sass {
-    @import 'style/style.scss';
-}
+import favicon from './assets/icons/favicon.svg'
 
 <!doctype html>
 html lang="en"
     head
         meta charset="utf-8"
         title -- ${out.global.title}
+        meta name="author" description="Andre Sieverding"
         meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        link rel="stylesheet" href=`${out.global.path}/assets/app.css` type="text/css"
+        link rel="shortcut icon" href=favicon type="image/x-icon"
     body
         app
+        script type="text/javascript" src=`${out.global.path}/assets/app.js` language="javascript"
+        script type="text/javascript" src=`${out.global.path}/assets/outdatedBrowser.js` language="javascript"
