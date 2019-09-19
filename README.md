@@ -11,6 +11,17 @@ First of all, use this repository as template for your new web application by cl
 $ git clone https://github.com/YourUsername/YourRepository.git
 ```
 
+### Features
+
+- Marko.js
+- Express.js
+- Webpack 4
+- Bootstrap 4
+- FontAwesome 5
+- Popper.js
+- jQuery
+- Outdated browser warning generated from `.browserslistrc`
+
 ### Installation
 
 Install all node modules to get things work.
