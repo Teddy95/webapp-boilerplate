@@ -22,6 +22,8 @@ $ git clone https://github.com/YourUsername/YourRepository.git
 - jQuery
 - Outdated browser warning generated from `.browserslistrc`
 
+This boilerplate works also on a Microsoft IIS server & in Docker container!
+
 ### Installation
 
 Install all node modules to get things work.
