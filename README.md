@@ -75,7 +75,7 @@ Write your stylesheets in CSS or SCSS and save them to `/app/style` and import t
 ### Build Image from Dockerfile
 
 ```bash
-$ docker build -t <username>/<image> .
+$ docker build -t webapp_name .
 ```
 
 ### Run Container from Image
@@ -83,7 +83,7 @@ $ docker build -t <username>/<image> .
 The following command start a docker container from your image and map port 8080 to port 3000.
 
 ```bash
-$ docker run -it -p 3000:8080 <username>/<image>
+$ docker run -it -p 3000:8080 webapp_name
 ```
 
 After running the commands above, go to: <http://localhost:3000>
