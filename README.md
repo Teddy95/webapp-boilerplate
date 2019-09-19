@@ -15,14 +15,15 @@ $ git clone https://github.com/YourUsername/YourRepository.git
 
 ### Features
 
-- Marko.js
-- Express.js
-- Webpack 4
-- Bootstrap 4
-- FontAwesome 5
-- Popper.js
-- jQuery
-- Outdated browser warning generated from `.browserslistrc`
+- Marko.js 🧩
+- Express.js 🚂
+- Webpack 4 📦
+- Bootstrap 4 🎨
+- FontAwesome 5 🔣
+- Popper.js 💬
+- jQuery 🧸
+- Outdated browser warning generated from `.browserslistrc` 🚨
+- Hot reloading after filechanges 🔥
 
 This boilerplate works also on a Microsoft IIS server & in Docker container!
 
