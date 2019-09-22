@@ -2,17 +2,6 @@
 
 ![Screenshot](app/assets/images/screenshot.png)
 
-### Use this boilerplate as template
-
-![Use this Template](app/assets/images/use-template.png)
-
-First of all, use this repository as template for your new web application by clicking the green button on top of this repository. After that, you have to clone your new repository to your local pc.
-
-```bash
-# Clone repository
-$ git clone https://github.com/YourUsername/YourRepository.git
-```
-
 ### Features
 
 - Marko.js 🧩
@@ -26,6 +15,17 @@ $ git clone https://github.com/YourUsername/YourRepository.git
 - Hot reloading after filechanges 🔥
 
 This boilerplate works also on a Microsoft IIS server & in Docker container!
+
+### Use this boilerplate as template
+
+![Use this Template](app/assets/images/use-template.png)
+
+First of all, use this repository as template for your new web application by clicking the green button on top of this repository. After that, you have to clone your new repository to your local pc.
+
+```bash
+# Clone repository
+$ git clone https://github.com/YourUsername/YourRepository.git
+```
 
 ### Installation
 
