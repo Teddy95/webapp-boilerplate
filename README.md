@@ -1,4 +1,4 @@
-# Webapp Boilerplate
+# Boilerplate for Node.js Webapplications with Express.js, Marko.js & Webpack 🧙
 
 ![Screenshot](app/assets/images/screenshot.png)
 
