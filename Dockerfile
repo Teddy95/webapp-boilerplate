@@ -1,9 +1,6 @@
 # Starting from Node.js Version 10 (LTS)
 FROM node:10
 
-# Maintainer
-LABEL maintainer="Andre Sieverding"
-
 # Create App directory
 WORKDIR /usr/src/app
 
