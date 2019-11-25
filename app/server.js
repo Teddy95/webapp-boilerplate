@@ -60,12 +60,14 @@ routes.forEach(route => {
                 route: route.route,
                 path: config.path,
                 params: req.params,
+		query: req.query,
                 serializedGlobals: {
                     view: true,
                     title: true,
                     route: true,
                     path: true,
-                    params: true
+                    params: true,
+		    query: true
                 }
             }
         }, res)
