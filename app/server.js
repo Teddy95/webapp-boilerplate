@@ -10,7 +10,7 @@ import express from 'express'
 import config from '../config.json'
 
 // Read App routes
-import routes from './routes.json'
+import routes from './routes.js'
 
 // Get template
 import template from './template.marko'
@@ -51,27 +51,31 @@ app.use(config.path + '/assets', express.static('dist'), (req, res, next) => {
 
 // Include Routes / Views
 routes.forEach(route => {
-    app.get(config.path + route.route, async (req, res) => {
-        res.setHeader("Content-Type", "text/html; charset=utf-8")
-        template.render({
-            $global: {
-                title: route.title,
-                view: route.view,
-                route: route.route,
-                path: config.path,
-                params: req.params,
-		query: req.query,
-                serializedGlobals: {
-                    view: true,
-                    title: true,
-                    route: true,
-                    path: true,
-                    params: true,
-		    query: true
+    if (typeof route.view !== 'undefined') {
+        app.get(config.path + route.route, async (req, res) => {
+            res.setHeader("Content-Type", "text/html; charset=utf-8")
+            template.render({
+                $global: {
+                    title: route.title,
+                    view: route.view,
+                    route: route.route,
+                    path: config.path,
+                    params: req.params,
+                    query: req.query,
+                    serializedGlobals: {
+                        view: true,
+                        title: true,
+                        route: true,
+                        path: true,
+                        params: true,
+                        query: true
+                    }
                 }
-            }
-        }, res)
-    })
+            }, res)
+        })
+    } else {
+        app.get(config.path + route.route, route.function)
+    }
 })
 
 var port = process.env.PORT || config.port
