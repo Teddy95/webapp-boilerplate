@@ -77,6 +77,18 @@ const imageRule = {
     ]
 }
 
+const mediaRule = {
+    test: /\.(mp4|webm|ogg|mp3|wav|flac|aac|m4a)$/,
+    use: [
+        {
+            loader: 'file-loader',
+            options: {
+                name: 'media/[name]-[hash:8].[ext]'
+            }
+        }
+    ]
+}
+
 const fontRule = {
     test: /\.(woff|woff2|ttf|eot)$/,
     use: [
@@ -117,7 +129,7 @@ const client = {
         extensions: ['.js', '.json', '.marko']
     },
     module: {
-        rules: [markoRule, styleRule, vectorRule, imageRule, fontRule]
+        rules: [markoRule, styleRule, vectorRule, imageRule, mediaRule, fontRule]
     },
     plugins: [
         new WebpackPreBuildPlugin(() => {
