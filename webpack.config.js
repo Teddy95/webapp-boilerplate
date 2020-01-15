@@ -151,6 +151,10 @@ const server = {
     name: 'Server',
     mode: env,
     target: 'node',
+    node: {
+        __filename: true,
+        __dirname: true
+    },
     externals: nodeExternals(),
     entry: {
         server: ['./app/server.js']
