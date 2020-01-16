@@ -10,10 +10,7 @@ const nodeExternals = require('webpack-node-externals')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const WebpackPreBuildPlugin = require('pre-build-webpack')
 const { getUserAgentRegExp } = require('browserslist-useragent-regexp')
-
-// Get app configurations
-var config = fs.readFileSync('config.json')
-config = JSON.parse(config)
+const config = require('./config')
 
 // Get node environment
 const { NODE_ENV } = process.env

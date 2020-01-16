@@ -7,7 +7,7 @@
 import express from 'express'
 
 // Read App configurations
-import config from '../config.json'
+import config from '../config'
 
 // Read App routes
 import routes from './routes.js'
