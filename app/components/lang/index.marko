@@ -1,0 +1,45 @@
+/**
+ * Autor: Andre Sieverding
+ * Copyright © 2019
+ */
+
+import i18n, { __, __n } from 'i18n-for-browser'
+import locales_de from '../../locales/de.json'
+import locales_en from '../../locales/en.json'
+
+class {
+	onCreate () {
+		i18n.configure({
+			locales: {
+				'de': locales_de,
+				'en': locales_en
+			},
+			defaultLocale: 'en',
+			queryParameter: 'lang',
+			cookieName: 'i18n'
+		})
+	}
+}
+
+if(input.plural)
+	// Plural
+	if(!input.values)
+		// Without values
+		-- ${__n(input.var)}
+	else if(Array.isArray(input.values))
+		// With multiple values
+		-- ${__n(input.var, ...input.values)}
+	else
+		// With value
+		-- ${__n(input.var, input.values)}
+else
+	// Singular
+	if(!input.values)
+		// Without values
+		-- ${__(input.var)}
+	else if(Array.isArray(input.values))
+		// With multiple values
+		-- ${__(input.var, ...input.values)}
+	else
+		// With value
+		-- ${__(input.var, input.values)}

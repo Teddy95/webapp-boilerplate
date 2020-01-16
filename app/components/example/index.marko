@@ -18,7 +18,7 @@ style {
 }
 
 div.count
-	-- ${state.count}
+	lang var="cats" value=state.count
 
 button.btn.btn-primary on-click('increment')
-	-- Click me! <i.fas.fa-rocket></i>
+	lang var="Click me!" -- <i.fas.fa-rocket></i>
