@@ -84,8 +84,8 @@ All language variables are stored in `/app/locales` and can be accessed by a mar
 <lang var="interpolatedGreeting" value="Andre" /> // -> Hello Andre!
 
 // Language variables with singular and plural
-<lang var="cats" value="1" /> // -> One cat
-<lang var="cats" value="2" /> // -> 2 cats
+<lang var="cats" value="1" plural=true /> // -> One cat
+<lang var="cats" value="2" plural=true /> // -> 2 cats
 ```
 
 ## Docker Container
