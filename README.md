@@ -72,7 +72,7 @@ Components are written in [marko.js](https://github.com/marko-js/marko). Add new
 
 Write your stylesheets in CSS or SCSS and save them to `/app/style` and import them to `style.scss`. This stylesheet file will be compiled and included in your application.
 
-### Use language variables
+### Language variables
 
 All language variables are stored in `/app/locales` and can be accessed by a marko.js component. The boilerplate uses the i18n module for browser.
 
