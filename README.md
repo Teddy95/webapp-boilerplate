@@ -6,6 +6,7 @@
 
 - Marko.js 🧩
 - Express.js 🚂
+- i18n internationalization 🌐
 - Webpack 4 📦
 - Bootstrap 4 🎨
 - FontAwesome 5 🔣
@@ -70,6 +71,22 @@ Components are written in [marko.js](https://github.com/marko-js/marko). Add new
 ### Stylesheets
 
 Write your stylesheets in CSS or SCSS and save them to `/app/style` and import them to `style.scss`. This stylesheet file will be compiled and included in your application.
+
+### Use language variables
+
+All language variables are stored in `/app/locales` and can be accessed by a marko.js component. The boilerplate uses the i18n module for browser.
+
+```marko
+// Simple language variable
+<lang var="cat" /> // -> Katze
+
+// Language variable with value (value can also be an array of values)
+<lang var="greeting" value="Andre" /> // -> Hello Andre!
+
+// Language variables with singular and plural
+<lang var="cats" value="1" /> // -> Eine Katze
+<lang var="cats" value="2" /> // -> 2 Katzen
+```
 
 ## Docker Container
 
