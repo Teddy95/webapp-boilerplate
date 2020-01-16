@@ -23,23 +23,23 @@ class {
 
 if(input.plural)
 	// Plural
-	if(!input.values)
+	if(!input.value)
 		// Without values
 		-- ${__n(input.var)}
-	else if(Array.isArray(input.values))
+	else if(Array.isArray(input.value))
 		// With multiple values
-		-- ${__n(input.var, ...input.values)}
+		-- ${__n(input.var, ...input.value)}
 	else
 		// With value
-		-- ${__n(input.var, input.values)}
+		-- ${__n(input.var, input.value)}
 else
 	// Singular
-	if(!input.values)
+	if(!input.value)
 		// Without values
 		-- ${__(input.var)}
-	else if(Array.isArray(input.values))
+	else if(Array.isArray(input.value))
 		// With multiple values
-		-- ${__(input.var, ...input.values)}
+		-- ${__(input.var, ...input.value)}
 	else
 		// With value
-		-- ${__(input.var, input.values)}
+		-- ${__(input.var, input.value)}
