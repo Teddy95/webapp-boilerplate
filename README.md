@@ -78,14 +78,14 @@ All language variables are stored in `/app/locales` and can be accessed by a mar
 
 ```marko
 // Simple language variable
-<lang var="cat" /> // -> Katze
+<lang var="greeting" /> // -> Hello world!
 
 // Language variable with value (value can also be an array of values)
-<lang var="greeting" value="Andre" /> // -> Hello Andre!
+<lang var="interpolatedGreeting" value="Andre" /> // -> Hello Andre!
 
 // Language variables with singular and plural
-<lang var="cats" value="1" /> // -> Eine Katze
-<lang var="cats" value="2" /> // -> 2 Katzen
+<lang var="cats" value="1" /> // -> One cat
+<lang var="cats" value="2" /> // -> 2 cats
 ```
 
 ## Docker Container
