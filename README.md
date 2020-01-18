@@ -8,8 +8,9 @@
 - Express.js 🚂
 - i18n internationalization 🌐
 - Webpack 4 📦
-- Bootstrap 4 🎨
+- GitHub Primer 🎨
 - FontAwesome 5 🔣
+- Octicons :github:
 - Popper.js 💬
 - jQuery 🧸
 - Outdated browser warning generated from `.browserslistrc` 🚨

@@ -1,0 +1,105 @@
+/**
+ * Autor: Andre Sieverding
+ * Copyright © 2019
+ */
+
+import octicons from '@primer/octicons'
+
+class {
+	onCreate (input) {
+		if (typeof input.name === 'undefined') {
+			this.destroy()
+		}
+
+		this.state = {
+			icon: input.name,
+			iconClass: input.class,
+			scale: 1,
+			spin: false,
+			flip: false
+		}
+
+		if (typeof input.scale !== 'undefined') {
+			this.state.scale = input.scale
+		}
+
+		if (typeof input.spin !== 'undefined' && input.spin === true) {
+			this.state.spin = true
+		}
+
+		if (typeof input.flip !== 'undefined' && (input.flip === 'vertical' || input.flip === 'horizontal')) {
+			this.state.flip = input.flip
+		}
+	}
+
+	onMount () {
+		var octiconWrapper = this.getEl('octicon')
+		var iconClass = false
+		var options = {
+			width: octicons[this.state.icon].width * this.state.scale,
+			height: octicons[this.state.icon].height * this.state.scale
+		}
+
+		if (typeof this.state.iconClass !== 'undefined') {
+			iconClass = this.state.iconClass
+		}
+
+		if (this.state.spin) {
+			if (!iconClass) {
+				iconClass = 'octicon-spin'
+			} else {
+				iconClass += ' octicon-spin'
+			}
+		}
+
+		if (this.state.flip) {
+			if (!iconClass) {
+				iconClass = `octicon-flip-${this.state.flip}`
+			} else {
+				iconClass += ` octicon-flip-${this.state.flip}`
+			}
+		}
+
+		if (iconClass) {
+			options.class = iconClass
+		}
+
+		octiconWrapper.innerHTML = octicons[this.state.icon].toSVG(options)
+	}
+}
+
+style.scss {
+	.octicon-wrapper {
+		display: inline;
+
+		.octicon-spin {
+			animation-name: spin;
+			animation-duration: 1150ms;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+
+		.octicon-flip-horizontal {
+			-webkit-transform: scaleX(-1);
+			-moz-transform: scaleX(-1);
+			transform: scaleX(-1);
+		}
+
+		.octicon-flip-vertical {
+			-webkit-transform: scaleY(-1);
+			-moz-transform: scaleY(-1);
+			transform: scaleY(-1);
+		}
+
+		@keyframes spin {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(360deg);
+			}
+		}
+	}
+}
+
+div.octicon-wrapper key="octicon"
