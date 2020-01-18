@@ -91,7 +91,7 @@ All language variables are stored in `/app/locales` and can be accessed by a mar
 
 ### Octicon component
 
-Read documentation of [octicons-marko](app/components/octicon/README.md)
+Read documentation of [octicons-marko](app/components/octicon/README.md). :octocat:
 
 ## Docker container
 
@@ -103,7 +103,7 @@ $ docker build -t webapp_name .
 
 ### Run container from image
 
-The following command start a docker container from your image and map port 8080 to port 3000.
+The following command start a docker container from your image and map port 8080 to port 3000. 🔮
 
 ```bash
 $ docker run -it -p 3000:8080 webapp_name
