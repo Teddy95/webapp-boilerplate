@@ -1,4 +1,4 @@
-# Boilerplate for Node.js Webapplications with Express.js, Marko.js & Webpack 🧙🔮
+# Boilerplate for Node.js Webapplications with Express.js, Marko.js & Webpack 🧙
 
 ![Screenshot](app/assets/images/screenshot.png)
 
@@ -7,10 +7,10 @@
 - Marko.js 🧩
 - Express.js 🚂
 - i18n internationalization 🌐
-- Webpack 4 📦
+- Webpack 📦
 - GitHub Primer 🎨
-- FontAwesome 5 🔣
-- Octicons :github:
+- FontAwesome 🔣
+- Octicons :octocat:
 - Popper.js 💬
 - jQuery 🧸
 - Outdated browser warning generated from `.browserslistrc` 🚨
