@@ -11,7 +11,6 @@
 - GitHub Primer 🎨
 - FontAwesome 🔣
 - Octicons :octocat:
-- Popper.js 💬
 - jQuery 🧸
 - Outdated browser warning generated from `.browserslistrc` 🚨
 - Hot reloading after filechanges 🔥
