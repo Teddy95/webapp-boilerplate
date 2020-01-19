@@ -92,6 +92,22 @@ All language variables are stored in `/app/locales` and can be accessed by a mar
 
 Read documentation of [octicons-marko](app/components/octicon/README.md). :octocat:
 
+### Environment variables
+
+Create an `.env` file in the root directory of your web app.
+
+```env
+# Sample...
+GITHUB_CLIENT_ID="11e92....df3"
+GITHUB_CLIENT_SECRET="27bfd2..........84e66d7"
+```
+
+```javascript
+// Access environment variables
+const githubClientId = process.env.GITHUB_CLIENT_ID
+console.log(githubClientId)
+```
+
 ## Docker container
 
 ### Build image from Dockerfile

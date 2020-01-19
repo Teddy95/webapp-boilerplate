@@ -3,7 +3,7 @@ module.exports = {
 	name: 'Webapp Boilerplate',
 	port: 8080,
 	path: '',
-	serverUrl: 'https://andre-sieverding.de',
+	serverUrl: 'https://example.com',
 	authentication: false,
 	passport: {
 		failureRedirect: '/',

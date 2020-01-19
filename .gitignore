@@ -3,6 +3,11 @@
 
 # .gitignore from: https://gist.github.com/Teddy95/5c2f8bfa3fbbb3cbb7b51ea68ebdb004
 
+# Environment variables
+*.env
+.env
+env
+
 # Logfiles
 logs
 *.log

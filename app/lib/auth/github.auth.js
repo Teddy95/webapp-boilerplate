@@ -3,8 +3,8 @@ const GitHubStrategy = require('passport-github').Strategy
 
 // Passport authentication strategy configurations
 const config = {
-	clientID: 'GITHUB_CLIENT_ID',
-	clientSecret: 'GITHUB_CLIENT_SECRET'
+	clientID: process.env.GITHUB_CLIENT_ID,
+	clientSecret: process.env.GITHUB_CLIENT_SECRET
 }
 
 // Passport authentication strategy function
