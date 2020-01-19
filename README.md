@@ -75,7 +75,7 @@ Write your stylesheets in CSS or SCSS and save them to `/app/style` and import t
 
 ### Language variables
 
-All language variables are stored in `/app/locales` and can be accessed by a marko.js component. The boilerplate uses the i18n module for browser.
+All language variables are stored in `/app/locales` and can be accessed by a marko.js component. The boilerplate uses the i18n module for browser. Change language with query parameter `lang` i.e. `http://localhost:8080/?lang=de`
 
 ```marko
 // Simple language variable
