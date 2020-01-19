@@ -8,11 +8,14 @@ import express from 'express'
 import expressSession from 'express-session'
 import bodyParser from 'body-parser'
 
-// Read App configurations
+// Get App configurations
 import config from '../config'
 
-// Read App routes
-import routes from './routes.js'
+// Get authentication methods
+import authMethods from './authentication'
+
+// Get App routes
+import routes from './routes'
 
 // Get template
 import template from './template.marko'
@@ -62,13 +65,20 @@ if (config.authentication) {
 
 // Grant access for static files
 app.use(config.path + '/assets', express.static('dist'), (req, res, next) => {
-	next()
+    next()
 })
 
 // Add passport authentication routes
 if (config.authentication) {
-    app.get(`/auth/login`, passport.authenticate(config.authType))
-    app.get('/auth/callback', passport.authenticate(config.authType, { failureRedirect: '/' }), (req, res) => {
+    for (var authType in authMethods) {
+        app.get(`/auth/${authType}/login`, passport.authenticate(authType))
+        app[authMethods[authType].callbackHttpMethod](`/auth/${authType}/callback`, passport.authenticate(authType, config.passport), (req, res) => {
+            // res.redirect('/')
+        })
+    }
+
+    app.get('/logout', (req, res) => {
+        req.logout()
         res.redirect('/')
     })
 }
