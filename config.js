@@ -3,6 +3,6 @@ module.exports = {
 	port: 8080,
 	path: '',
 	serverUrl: 'https://andre-sieverding.de',
-	authentication: true,
+	authentication: false,
 	authType: 'github'
 }
