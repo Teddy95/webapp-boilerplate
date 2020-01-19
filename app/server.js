@@ -1,10 +1,12 @@
 /**
  * Autor: Andre Sieverding
- * Copyright © 2019
+ * Copyright © 2020
  */
 
 // Include required packages
 import express from 'express'
+import expressSession from 'express-session'
+import bodyParser from 'body-parser'
 
 // Read App configurations
 import config from '../config'
@@ -14,6 +16,11 @@ import routes from './routes.js'
 
 // Get template
 import template from './template.marko'
+
+// Import authentication functions if it is enabled
+if (config.authentication) {
+    var { passport, checkAuthentication } = require('./lib/passport')
+}
 
 // Create Express App
 var app = express()
@@ -44,15 +51,43 @@ if (isDev) {
     }))
 }
 
+// Apply server middleware
+app.use(expressSession({ secret: config.name, resave: true, saveUninitialized: false }))
+app.use(bodyParser.urlencoded({ extended : true }))
+
+if (config.authentication) {
+    app.use(passport.initialize())
+    app.use(passport.session())
+}
+
 // Grant access for static files
 app.use(config.path + '/assets', express.static('dist'), (req, res, next) => {
 	next()
 })
 
+// Add passport authentication routes
+if (config.authentication) {
+    app.get(`/auth/login`, passport.authenticate(config.authType))
+    app.get('/auth/callback', passport.authenticate(config.authType, { failureRedirect: '/' }), (req, res) => {
+        res.redirect('/')
+    })
+}
+
 // Include Routes / Views
 routes.forEach(route => {
+    // Create route parameters array & push the route to it
+    var routeParameters = []
+    routeParameters.push(config.path + route.route)
+
+    // Check if authentication is required for this route
+    if (config.authentication && route.authentication) {
+        // Push authentication middleware to route parameters array
+        routeParameters.push(checkAuthentication)
+    }
+
+    // Push view or function to route parameters array
     if (typeof route.view !== 'undefined') {
-        app.get(config.path + route.route, async (req, res) => {
+        routeParameters.push(async (req, res) => {
             res.setHeader("Content-Type", "text/html; charset=utf-8")
             template.render({
                 $global: {
@@ -74,8 +109,11 @@ routes.forEach(route => {
             }, res)
         })
     } else {
-        app.get(config.path + route.route, route.function)
+        routeParameters.push(route.function)
     }
+
+    // Define route
+    app.get(...routeParameters)
 })
 
 var port = process.env.PORT || config.port
