@@ -4,9 +4,9 @@
     "description": "Boilerplate for Node.js Webapplications with Express.js, Marko.js & Webpack",
     "main": "dist/server.js",
     "scripts": {
-        "start": "cross-env NODE_ENV=production node .",
+        "start": "cross-env NODE_ENV=production node -r dotenv/config dist/server.js",
         "build": "cross-env NODE_ENV=production webpack --progress",
-        "dev": "cross-env NODE_ENV=development webpack --progress && cross-env NODE_ENV=development nodemon dist/server.js"
+        "dev": "cross-env NODE_ENV=development webpack --progress && cross-env NODE_ENV=development nodemon -r dotenv/config dist/server.js"
     },
     "repository": {
         "type": "git",

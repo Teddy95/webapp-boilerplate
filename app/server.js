@@ -3,9 +3,6 @@
  * Copyright © 2020
  */
 
-// Load environment variables
-require('dotenv').config()
-
 // Include required packages
 import express from 'express'
 import expressSession from 'express-session'
