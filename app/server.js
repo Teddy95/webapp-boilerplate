@@ -22,7 +22,7 @@ import template from './template.marko'
 
 // Import authentication functions if it is enabled
 if (config.authentication) {
-    var { passport, checkAuthentication } = require('./lib/passport')
+    var { passport, checkAuthentication, logout } = require('./lib/passport')
 }
 
 // Create Express App
@@ -77,10 +77,7 @@ if (config.authentication) {
         })
     }
 
-    app.get('/logout', (req, res) => {
-        req.logout()
-        res.redirect('/')
-    })
+    app.get('/logout', logout)
 }
 
 // Include Routes / Views

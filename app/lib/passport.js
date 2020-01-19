@@ -41,8 +41,17 @@ const checkAuthentication = (req, res, next) => {
 	next()
 }
 
+// Logout function
+const logout = (req, res) => {
+    if (!req.isAuthenticated()) res.redirect('/')
+
+    req.logout()
+    res.redirect('/')
+}
+
 module.exports = {
 	passport: passport,
 	checkAuthentication: checkAuthentication,
+    logout: logout,
 	callbackUrl: callbackUrl
 }
