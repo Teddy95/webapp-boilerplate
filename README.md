@@ -28,6 +28,20 @@ First of all, use this repository as template for your new web application by cl
 $ git clone https://github.com/YourUsername/YourRepository.git
 ```
 
+## Contents
+
+- [Installation](#installation)
+- [Build application](#build-application)
+- [Run application](#run-application)
+- [Add routes / views](##add-routes--views)
+- [Components](#components)
+- [Stylesheets](#stylesheets)
+- [Language variables](#language-variables)
+- [Octicon component](/app/components/octicon/README.md)
+- [Environment variables](#environment-variables)
+- [Authentication](#authentication)
+- [Docker container](#docker-container)
+
 ### Installation
 
 Install all node modules to get things work.
