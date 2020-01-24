@@ -33,7 +33,7 @@ $ git clone https://github.com/YourUsername/YourRepository.git
 - [Installation](#installation)
 - [Build application](#build-application)
 - [Run application](#run-application)
-- [Add routes / views](##add-routes--views)
+- [Add routes / views](#add-routes--views)
 - [Components](#components)
 - [Stylesheets](#stylesheets)
 - [Language variables](#language-variables)
