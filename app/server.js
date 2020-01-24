@@ -104,13 +104,15 @@ routes.forEach(route => {
                     path: config.path,
                     params: req.params,
                     query: req.query,
+                    user: req.user,
                     serializedGlobals: {
                         view: true,
                         title: true,
                         route: true,
                         path: true,
                         params: true,
-                        query: true
+                        query: true,
+                        user: true
                     }
                 }
             }, res)

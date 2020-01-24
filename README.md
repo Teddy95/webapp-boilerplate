@@ -108,6 +108,47 @@ const githubClientId = process.env.GITHUB_CLIENT_ID
 console.log(githubClientId)
 ```
 
+### Authentication
+
+#### Enable authentication
+
+Enable authentication in `/config.js` by setting `authentication` to true.
+
+```bash
+# Login url
+/auth/<provider>/login
+/auth/github/login
+
+# Login callback url
+/auth/<provider>/callback
+
+# Logout url
+/logout
+```
+
+The user object is passed to the browser and can be accessed by `out.global.user`. GitHub authentication is already integrated! Just enable authentication add an `.env` file as the example above with your GitHub client id and client secret to your project and let the magic happen. ✨
+
+#### Authentication for routes
+
+You can enable authentication for each route in `/app/routes.js` individually.
+
+#### Add authentication providers
+
+You can add third party authentication in `/app/authentication.js` i.e. for GitHub.
+
+```javascript
+module.exports = {
+	'github': {
+		authMehtodFile: require('./lib/auth/github.auth.js'),
+		callbackHttpMethod: 'get'
+	},
+	'azuread-openidconnect': { ... },
+	...
+}
+```
+
+You need an `authMehtodFile` which returns a passport strategy and a `callbackHttpMethod` like get or post. The callback http method defines the method type of the callback url for the specific authentication type.
+
 ## Docker container
 
 ### Build image from Dockerfile

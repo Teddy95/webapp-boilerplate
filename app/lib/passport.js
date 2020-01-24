@@ -23,22 +23,21 @@ if (config.authentication === true) {
 		passport.use(authMethods[authType].authMehtodFile(callbackUrl))
 	}
 
-	// Passport serialize & deserialize user methods
+	// Passport serialize user
 	passport.serializeUser((user, done) => {
 		done(null, user)
 	})
 
-	passport.deserializeUser((user, done) => {
+    // Passport deserialize user
+    passport.deserializeUser((user, done) => {
 		done(null, user)
 	})
 }
 
 // Check authentication function
 const checkAuthentication = (req, res, next) => {
-	if (req.isAuthenticated()) next()
-
-	// res.redirect('/auth/login')
-	next()
+	if (req.isAuthenticated()) return next()
+	res.send('Unauthenticated')
 }
 
 // Logout function

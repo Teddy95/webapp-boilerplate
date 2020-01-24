@@ -1,11 +1,13 @@
-/**
- * Autor: Andre Sieverding
- * Copyright © 2019
- */
-
-<!-- $ console.log(out.global.user) -->
-
 br
+
 div.blankslate
-	lang var="greeting"
+	if(out.global.user)
+		profile
+		br
+
+	if(out.global.user)
+		lang var="interpolatedGreeting" value=[out.global.user._json.name || out.global.user.username]
+	else
+		lang var="greeting"
+
 	example

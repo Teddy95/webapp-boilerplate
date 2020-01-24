@@ -12,12 +12,11 @@ const authenticationStrategy = (callbackUrl) => {
 	// Add callback url to configurations
 	const strategyConfig = {
 		...config,
-		callbackURL: callbackUrl,
-		passReqToCallback: true
+		callbackURL: callbackUrl
 	}
 
-	return new GitHubStrategy(strategyConfig, (req, accessToken, refreshToken, profile, cb) => {
-		return cb(null, profile)
+	return new GitHubStrategy(strategyConfig, (accessToken, refreshToken, profile, done) => {
+		return done(null, profile)
 	})
 }
 
