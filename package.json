@@ -13,7 +13,7 @@
         "url": "git+https://github.com/Teddy95/webapp-boilerplate.git"
     },
     "author": "Andre Sieverding",
-    "license": "WTFPL",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/Teddy95/webapp-boilerplate/issues"
     },
