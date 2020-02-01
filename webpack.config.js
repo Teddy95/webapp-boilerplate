@@ -1,8 +1,3 @@
-/**
-* Autor: Andre Sieverding
-* Copyright © 2019
-*/
-
 // Import required modules
 const path = require('path')
 const fs = require('fs')
@@ -101,6 +96,7 @@ const fontRule = {
 
 // Webpack config for browser
 const client = {
+    target: 'web',
     name: 'Client',
     mode: env,
     entry: {
@@ -169,6 +165,7 @@ const server = {
     }
 }
 
+// Export configurations
 module.exports = [
     server,
     client
