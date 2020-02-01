@@ -19,15 +19,19 @@ logs
 .cache/
 static/
 
+# Production build
+www/
+dist/
+
+# Composer
+composer.phar
+/vendor/
+
 # Node.js
 node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Composer
-composer.phar
-/vendor/
 
 # Windows
 Thumbs.db
@@ -58,3 +62,9 @@ Icon
 .directory
 .Trash-*
 .nfs*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
