@@ -3,7 +3,7 @@
 	"interpolatedGreeting": "Hallo %s!",
 	"Click me!": "Klick mich!",
 	"cats": {
-		"one": "%s Katze",
+		"one": "Eine Katze",
 		"other": "%s Katzen"
 	}
 }
