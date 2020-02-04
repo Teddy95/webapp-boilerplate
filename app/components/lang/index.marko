@@ -1,6 +1,29 @@
 class {
 	onCreate (input) {
 		this.state = {
+			variable: null,
+			value: null,
+			plural: null,
+			string: null
+		}
+
+		this.setInputs(input)
+	}
+
+	onInput (input) {
+		this.setInputs(input)
+	}
+
+	onMount () {
+		this.createString()
+	}
+
+	onUpdate () {
+		this.createString()
+	}
+
+	setInputs (input) {
+		this.state = {
 			variable: input.var,
 			value: input.value,
 			plural: input.plural,
@@ -8,7 +31,7 @@ class {
 		}
 	}
 
-	onMount () {
+	createString () {
 		if (this.state.plural === true) {
 			// Plural
 			if (!this.state.value) {
