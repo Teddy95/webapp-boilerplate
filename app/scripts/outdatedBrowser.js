@@ -1,8 +1,3 @@
-/**
-* Autor: Andre Sieverding
-* Copyright © 2019
-*/
-
 const supportedBrowsers = require('../../dist/supportedBrowsers')
 
 if (!supportedBrowsers.test(navigator.userAgent)) {
