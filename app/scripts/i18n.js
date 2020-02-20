@@ -13,13 +13,9 @@ i18nForBrowser.configure({
 })
 
 if (typeof window === 'undefined') {
-	global.i18n = {
-		__: __,
-		__n: __n
-	}
+	global.__ = __
+	global.__n = __n
 } else {
-	window.i18n = {
-		__: __,
-		__n: __n
-	}
+	window.__ = __
+	window.__n = __n
 }

@@ -36,25 +36,25 @@ class {
 			// Plural
 			if (!this.state.value) {
 				// Without values
-				this.state.string = i18n.__n(this.state.variable)
+				this.state.string = __n(this.state.variable)
 			} else if (Array.isArray(this.state.value)) {
 				// With multiple values
-				this.state.string = i18n.__n(this.state.variable, ...this.state.value)
+				this.state.string = __n(this.state.variable, ...this.state.value)
 			} else {
 				// With value
-				this.state.string = i18n.__n(this.state.variable, this.state.value)
+				this.state.string = __n(this.state.variable, this.state.value)
 			}
 		} else {
 			// Singular
 			if (!this.state.value) {
 				// Without values
-				this.state.string = i18n.__(this.state.variable)
+				this.state.string = __(this.state.variable)
 			} else if (Array.isArray(this.state.value)) {
 				// With multiple values
-				this.state.string = i18n.__(this.state.variable, ...this.state.value)
+				this.state.string = __(this.state.variable, ...this.state.value)
 			} else {
 				// With value
-				this.state.string = i18n.__(this.state.variable, this.state.value)
+				this.state.string = __(this.state.variable, this.state.value)
 			}
 		}
 	}

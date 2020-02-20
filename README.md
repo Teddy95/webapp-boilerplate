@@ -100,6 +100,10 @@ All language variables are stored in `/app/locales` and can be accessed by a mar
 // Language variables with singular and plural
 <lang var="cats" value="1" plural=true /> // -> One cat
 <lang var="cats" value="2" plural=true /> // -> 2 cats
+
+// You can also use the translation via JavaScript
+-- ${__('greeting')} // -> Hello world!
+-- ${__('cats', 2)} // -> 2 cats
 ```
 
 ### Octicon component
