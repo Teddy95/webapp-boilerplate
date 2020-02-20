@@ -12,7 +12,14 @@ i18nForBrowser.configure({
 	cookieName: 'i18n'
 })
 
-window.i18n = {
-	__: __,
-	__n: __n
+if (typeof window === 'undefined') {
+	global.i18n = {
+		__: __,
+		__n: __n
+	}
+} else {
+	window.i18n = {
+		__: __,
+		__n: __n
+	}
 }

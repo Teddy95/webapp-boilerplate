@@ -11,6 +11,9 @@ import bodyParser from 'body-parser'
 // Get App configurations
 import config from '../config'
 
+// Get localization
+import './scripts/i18n'
+
 // Get authentication methods
 import authMethods from './authentication'
 
