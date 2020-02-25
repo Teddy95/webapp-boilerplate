@@ -34,9 +34,15 @@ const preBuild = () => {
 }
 
 // Define webpack rules
+const javascriptRule = {
+    test: /\.(js|jsx)$/,
+    exclude: /node_modules/,
+    loader: 'babel-loader'
+}
+
 const markoRule = {
     test: /\.marko?$/,
-    loader: '@marko/webpack/loader'
+    use: ['babel-loader', '@marko/webpack/loader']
 }
 
 const styleRule = {
@@ -123,7 +129,7 @@ const client = {
         extensions: ['.js', '.json', '.marko']
     },
     module: {
-        rules: [markoRule, styleRule, vectorRule, imageRule, mediaRule, fontRule]
+        rules: [javascriptRule, markoRule, styleRule, vectorRule, imageRule, mediaRule, fontRule]
     },
     plugins: [
         new WebpackPreBuildPlugin(() => {
@@ -161,7 +167,7 @@ const server = {
         extensions: ['.js', '.json', '.marko']
     },
     module: {
-        rules: [markoRule, vectorRule, imageRule]
+        rules: [javascriptRule, markoRule, vectorRule, imageRule]
     }
 }
 
