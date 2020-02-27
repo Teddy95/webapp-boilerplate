@@ -156,6 +156,9 @@ const server = {
         __dirname: true
     },
     externals: nodeExternals(),
+    // externals: [nodeExternals({
+    //     whitelist: [/^(?!(?:PACKAGE1|PACKAGE2)\/?)[^./!]/]
+    // })],
     entry: {
         server: ['./app/server.js']
     },
