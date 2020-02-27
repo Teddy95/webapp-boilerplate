@@ -109,8 +109,8 @@ const client = {
         app: isDev ? [
             'webpack-hot-middleware/client?reload=true',
             './app/client.js'
-        ] : ['./app/client.js']
-        // outdatedBrowser: ['./app/scripts/outdatedBrowser.js']
+        ] : ['./app/client.js'],
+        outdatedBrowser: ['./app/scripts/outdatedBrowser.js']
     },
     output: {
         filename: '[name].js',
@@ -126,15 +126,15 @@ const client = {
     } : undefined,
     devtool: isDev ? 'source-map' : undefined,
     resolve: {
-        extensions: ['.js', '.json', '.marko']
+        extensions: ['.json', '.js', '.marko']
     },
     module: {
         rules: [javascriptRule, markoRule, styleRule, vectorRule, imageRule, mediaRule, fontRule]
     },
     plugins: [
-        // new WebpackPreBuildPlugin(() => {
-        //     preBuild()
-        // }),
+        new WebpackPreBuildPlugin(() => {
+            preBuild()
+        }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
@@ -164,7 +164,7 @@ const server = {
         path: path.resolve(__dirname, 'dist'),
     },
     resolve: {
-        extensions: ['.js', '.json', '.marko']
+        extensions: ['.json', '.js', '.marko']
     },
     module: {
         rules: [javascriptRule, markoRule, vectorRule, imageRule]
