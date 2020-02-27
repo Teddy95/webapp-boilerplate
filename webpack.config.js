@@ -35,7 +35,7 @@ const preBuild = () => {
 
 // Define webpack rules
 const javascriptRule = {
-    test: /\.(js|jsx)$/,
+    test: /\.js$/,
     exclude: /node_modules/,
     loader: 'babel-loader'
 }
