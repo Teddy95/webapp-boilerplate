@@ -1,5 +1,8 @@
 # Octicon Marko.js Component
 
+Use [Octicons](https://octicons.github.com/) in your Marko.js application.  
+This module was inspired by the [Vue.js Octicon component](https://github.com/Justineo/vue-octicon).
+
 ### Basic
 
 ```marko

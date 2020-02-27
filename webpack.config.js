@@ -35,7 +35,7 @@ const preBuild = () => {
 
 // Define webpack rules
 const javascriptRule = {
-    test: /\.(js|jsx)$/,
+    test: /\.js$/,
     exclude: /node_modules/,
     loader: 'babel-loader'
 }
@@ -126,7 +126,7 @@ const client = {
     } : undefined,
     devtool: isDev ? 'source-map' : undefined,
     resolve: {
-        extensions: ['.js', '.json', '.marko']
+        extensions: ['.json', '.js', '.marko']
     },
     module: {
         rules: [javascriptRule, markoRule, styleRule, vectorRule, imageRule, mediaRule, fontRule]
@@ -164,7 +164,7 @@ const server = {
         path: path.resolve(__dirname, 'dist'),
     },
     resolve: {
-        extensions: ['.js', '.json', '.marko']
+        extensions: ['.json', '.js', '.marko']
     },
     module: {
         rules: [javascriptRule, markoRule, vectorRule, imageRule]
