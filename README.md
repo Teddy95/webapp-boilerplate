@@ -37,7 +37,7 @@ $ git clone https://github.com/YourUsername/YourRepository.git
 - [Components](#components)
 - [Stylesheets](#stylesheets)
 - [Language variables](#language-variables)
-- [Octicon component](/app/components/octicon/README.md)
+- [Octicon component](https://github.com/Teddy95/octicons-marko)
 - [Environment variables](#environment-variables)
 - [Authentication](#authentication)
 - [Docker container](#docker-container)
