@@ -1,10 +1,3 @@
-/**
- * Autor: Andre Sieverding
- * Copyright © 2020
- */
-
-require('marko/node-require')
-
 // Include required packages
 import express from 'express'
 import expressSession from 'express-session'

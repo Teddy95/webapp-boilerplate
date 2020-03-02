@@ -155,10 +155,9 @@ const server = {
         __filename: true,
         __dirname: true
     },
-    externals: nodeExternals(),
-    // externals: [nodeExternals({
-    //     whitelist: [/^(?!(?:PACKAGE1|PACKAGE2)\/?)[^./!]/]
-    // })],
+    externals: [nodeExternals({
+        whitelist: ['marko', /\.marko$/]
+    })],
     entry: {
         server: ['./app/server.js']
     },
