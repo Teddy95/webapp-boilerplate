@@ -1,8 +1,3 @@
-/**
- * Autor: Andre Sieverding
- * Copyright © 2020
- */
-
 // Import required modules
 const path = require('path')
 const passport = require('passport')
