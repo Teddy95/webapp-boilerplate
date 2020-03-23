@@ -2,6 +2,7 @@
 import express from 'express'
 import expressSession from 'express-session'
 import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
 
 // Get App configurations
 import config from '../config'
@@ -55,6 +56,7 @@ if (isDev) {
 // Apply server middleware
 app.use(expressSession({ secret: config.name, resave: true, saveUninitialized: false }))
 app.use(bodyParser.urlencoded({ extended : true }))
+app.use(cookieParser())
 
 if (config.authentication) {
     app.use(passport.initialize())
