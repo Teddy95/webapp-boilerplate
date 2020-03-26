@@ -1,0 +1,67 @@
+// Colors
+$orange: #ff9500;
+$green: #bede72;
+$blue: #32afed;
+$purple: rebeccapurple;
+
+// Theme colors
+$theme-colors: () !default;
+$theme-colors: map-merge((
+	"orange": $orange,
+	"green": $green,
+	"blue": $blue,
+	"purple": $purple
+), $theme-colors);
+
+// Set text color behaved on background lightness
+@function text-color($color) {
+	@if (lightness($color) > 60) {
+		@return #24292e;
+	}
+	@else {
+		@return #ffffff;
+	}
+}
+
+// Create colored button classes
+.btn {
+	@each $theme, $color in $theme-colors {
+		&.btn-#{$theme} {
+			background-color: $color;
+			background-image: linear-gradient(-180deg, lighten($color, 5%) 0%, $color 90%);
+			color: text-color($color);
+
+			&:hover, &.hover {
+				background-color: darken($color, 5%);
+				background-image: linear-gradient(-180deg, $color 0%, darken($color, 5%) 90%);
+				background-position: -0.5em;
+				border-color: rgba(27, 31, 35, 0.5);
+				color: text-color(darken($color, 5%));
+			}
+
+			&:active, &.selected, &[aria-selected=true] {
+				background-color: darken($color, 3%);
+				background-image: none;
+				border-color: rgba(27, 31, 35, 0.5);
+				box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.15);
+			}
+
+			&:focus, &.focus {
+				box-shadow: 0 0 0 0.2em rgba($color, 0.4);
+			}
+		}
+	}
+}
+
+@each $theme, $color in $theme-colors {
+	[open] {
+		> .btn {
+			&.btn-#{$theme} {
+				background-color: darken($color, 3%);
+				background-image: none;
+				border-color: rgba(27, 31, 35, 0.5);
+				box-shadow: inset 0 0.15em 0.3em rgba(27, 31, 35, 0.15);
+			}
+		}
+	}
+}
