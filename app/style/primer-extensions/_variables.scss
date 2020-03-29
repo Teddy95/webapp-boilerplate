@@ -1,0 +1,16 @@
+// Colors
+$orange: #ff9500;
+$green: #bede72;
+$blue: #32afed;
+$red: #b70a06;
+$purple: rebeccapurple;
+
+// Theme colors
+$theme-colors: () !default;
+$theme-colors: map-merge((
+	"orange": $orange,
+	"green": $green,
+	"blue": $blue,
+	"red": $red,
+	"purple": $purple
+), $theme-colors);

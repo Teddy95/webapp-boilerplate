@@ -1,0 +1,15 @@
+// Create colored flash message classes
+.flash {
+	@each $theme, $color in $theme-colors {
+		&.flash-#{$theme} {
+			@if (lightness($color) > 40) {
+				color: darken($color, 40%);
+				background-color: lighten($color, 30%);
+			}
+			@else {
+				color: darken($color, 10%);
+				background-color: lighten($color, 50%);
+			}
+		}
+	}
+}
