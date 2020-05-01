@@ -55,7 +55,7 @@
         "express": "^4.17.1",
         "express-session": "^1.17.0",
         "i18n-for-browser": "^1.2.2",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "octicons-marko": "^1.1.1",
         "passport": "^0.4.1",
         "passport-github": "^1.1.0"
