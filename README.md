@@ -103,12 +103,13 @@ All language variables are stored in `/app/locales` and can be accessed by a mar
 
 // You can also use the translation via JavaScript
 -- ${__('greeting')} // -> Hello world!
--- ${__('cats', 2)} // -> 2 cats
+-- ${__('interpolatedGreeting', 'Andre')} // -> Hello Andre!
+-- ${__n('cats', 2)} // -> 2 cats
 ```
 
 ### Octicon component
 
-Read documentation of [octicons-marko](app/components/octicon/README.md). :octocat:
+Read documentation of [octicons-marko](https://github.com/Teddy95/octicons-marko). :octocat:
 
 ### Environment variables
 
