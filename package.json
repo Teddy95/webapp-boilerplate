@@ -1,6 +1,6 @@
 {
     "name": "webapp-boilerplate",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "description": "Boilerplate for Node.js Webapplications with Express.js, Marko.js & Webpack",
     "main": "dist/server.js",
     "scripts": {
