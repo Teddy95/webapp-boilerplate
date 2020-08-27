@@ -74,6 +74,13 @@ Or you can run the app in developer mode, so the app is compiling itself after f
 $ npm run dev
 ```
 
+You can also run your app in debug mode. Just run the following command and attach a debugger to your app. The app is using the default port, mostly `9229`.
+
+```bash
+# Run application in debug mode
+$ npm run debug
+```
+
 ### Add routes / views
 
 Add a new route in `/app/routes.js` and the matching view in the `/app/view` directory as `.marko` file.
