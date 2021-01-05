@@ -71,13 +71,13 @@ app.use(config.path + '/assets', express.static('dist'), (req, res, next) => {
 // Add passport authentication routes
 if (config.authentication) {
     for (var authType in authMethods) {
-        app.get(`/auth/${authType}/login`, passport.authenticate(authType))
-        app[authMethods[authType].callbackHttpMethod](`/auth/${authType}/callback`, passport.authenticate(authType, config.passport), (req, res) => {
+        app.get(`${config.path}/auth/${authType}/login`, passport.authenticate(authType))
+        app[authMethods[authType].callbackHttpMethod](`${config.path}/auth/${authType}/callback`, passport.authenticate(authType, config.passport), (req, res) => {
             // res.redirect('/')
         })
     }
 
-    app.get('/logout', logout)
+    app.get('${config.path}/logout', logout)
 }
 
 // Include Routes / Views
