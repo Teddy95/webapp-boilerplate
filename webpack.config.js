@@ -156,7 +156,11 @@ const server = {
         __dirname: true
     },
     externals: [nodeExternals({
-        whitelist: ['marko', /\.marko$/]
+        // whitelist: ['marko', /\.marko$/],
+
+        // Exclude node_modules, but ensure non js files are bundled.
+        // Eg: `.marko`, `.css`, etc.
+        whitelist: [/\.(?!(?:js|json)$)[^.]+$/]
     })],
     entry: {
         server: ['./app/server.js']
