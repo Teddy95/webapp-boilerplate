@@ -1,0 +1,27 @@
+import '../../scripts/i18n'
+import Cookies from 'js-cookie'
+
+class {
+	onMount () {
+		if (Cookies.get('outdated_browser_warning_closed') === 'true') {
+			this.close()
+		}
+	}
+
+	close (e = null) {
+		if(e !== null) e.preventDefault()
+		Cookies.set('outdated_browser_warning_closed', 'true')
+		this.getEl('alert').remove()
+		this.destroy()
+	}
+}
+
+div.outdated-browser-warning key="alert"
+	div
+		div.d-flex.justify-content-center.align-items-center.h-100
+			div
+				h6 -- <lang var="Your browser is outdated!" />
+				p
+					-- <lang var="Update your browser to use this web application." /> <a.btn-update-browser href="http://fsg-vm-sccm/CMApplicationCatalog/#/SoftwareLibrary/AppListPageView.xaml"><lang var="Update browser now" /></a>
+				p.last
+					a.obsolete-close href="#" title=i18n.__('Close') on-click('close') -- &times;

@@ -1,3 +1,3 @@
-module.exports = (req, res, next) => {
-	res.send('Hello World!')
+export default (req, res, next) => {
+	res.send(res.__('greeting'))
 }

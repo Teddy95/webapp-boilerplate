@@ -1,6 +1,3 @@
-# Ignore distribution folder
-/dist/
-
 # .gitignore from: https://gist.github.com/Teddy95/5c2f8bfa3fbbb3cbb7b51ea68ebdb004
 
 # Environment variables
@@ -27,6 +24,9 @@ dist/
 composer.phar
 /vendor/
 
+# node-rfc SAP
+dev_rfc.trc
+
 # Node.js
 node_modules
 npm-debug.log*
@@ -52,6 +52,15 @@ cordova/platforms/*
 !.vscode/launch.json
 !.vscode/extensions.json
 .history
+
+# Xcode
+xcuserdata/
+/*.gcno
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/WorkspaceSettings.xcsettings
 
 # Windows
 Thumbs.db

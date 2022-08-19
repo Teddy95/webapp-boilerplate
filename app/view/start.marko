@@ -1,13 +1,16 @@
 br
 
-div.blankslate
+div.mt-5.text-center
+	h1.display-5.fw-bold
+		if(out.global.user)
+			lang var="interpolatedGreeting" value=[out.global.user._json.name || out.global.user._json.login]
+		else
+			lang var="greeting"
+	
 	if(out.global.user)
-		profile
 		br
-
-	if(out.global.user)
-		lang var="interpolatedGreeting" value=[out.global.user._json.name || out.global.user.username]
-	else
-		lang var="greeting"
+		profile-avatar
+		br
+		br
 
 	example

@@ -1,15 +1,22 @@
 import favicon from './assets/icons/favicon.svg'
+import './style/style.scss'
+// import appPackage from '../package.json' assert { type: 'json' }
+import appPackage from '../package.json'
 
-<!doctype html>
-html lang="en"
-    head
-        meta charset="utf-8"
-        title -- ${out.global.title}
-        meta name="author" content="Andre Sieverding"
-        meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        link rel="stylesheet" href=`${out.global.path}/assets/app.css` type="text/css"
-        link rel="shortcut icon" href=favicon type="image/x-icon"
-    body
-        app
-        script type="text/javascript" src=`${out.global.path}/assets/app.js` language="javascript"
-        script type="text/javascript" src=`${out.global.path}/assets/outdatedBrowser.js` language="javascript"
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="author" description=appPackage.author />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>${out.global.title}</title>
+        <link rel="shortcut icon" href=favicon type="image/x-icon" />
+    </head>
+    <body>
+        <client />
+        <if(out.global.outdatedBrowser)>
+            <outdated-browser />
+        </if>
+        <${out.global.view} />
+    </body>
+</html>

@@ -12,13 +12,15 @@ class {
 
 style {
 	.count {
-		color: #ff9500;
+		color: #454545;
 		font-size: 3em;
 	}
 }
 
-div.count
-	lang var="cats" value=`${state.count}` plural=true
+<div.count>
+	<lang var="cats" value=`${state.count}` plural=true />
+</div>
 
-button.btn.btn-primary on-click('increment')
-	-- <lang var="Click me!" /> <octicon name="rocket"></octicon>
+<button.btn.btn-primary on-click('increment')>
+	<lang var="Click me!" /> <i.px.px-rocket></i>
+</button>

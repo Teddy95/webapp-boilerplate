@@ -1,63 +1,12 @@
-class {
-	onCreate (input) {
-		this.state = {
-			variable: null,
-			value: null,
-			plural: null,
-			string: null
-		}
+import '../../scripts/i18n'
 
-		this.setInputs(input)
-	}
-
-	onInput (input) {
-		this.setInputs(input)
-	}
-
-	onMount () {
-		this.createString()
-	}
-
-	onUpdate () {
-		this.createString()
-	}
-
-	setInputs (input) {
-		this.state = {
-			variable: input.var,
-			value: input.value,
-			plural: input.plural,
-			string: ''
-		}
-	}
-
-	createString () {
-		if (this.state.plural === true) {
-			// Plural
-			if (!this.state.value) {
-				// Without values
-				this.state.string = __n(this.state.variable)
-			} else if (Array.isArray(this.state.value)) {
-				// With multiple values
-				this.state.string = __n(this.state.variable, ...this.state.value)
-			} else {
-				// With value
-				this.state.string = __n(this.state.variable, this.state.value)
-			}
-		} else {
-			// Singular
-			if (!this.state.value) {
-				// Without values
-				this.state.string = __(this.state.variable)
-			} else if (Array.isArray(this.state.value)) {
-				// With multiple values
-				this.state.string = __(this.state.variable, ...this.state.value)
-			} else {
-				// With value
-				this.state.string = __(this.state.variable, this.state.value)
-			}
-		}
-	}
-}
-
--- ${state.string}
+if(input.plural === true)
+	-- ${i18n.__n(input.var, input.value)}
+else
+	if(typeof input.value !== 'undefined')
+		if(Array.isArray(input.value))
+			-- ${i18n.__(input.var, ...input.value)}
+		else
+			-- ${i18n.__(input.var, input.value)}
+	else
+		-- ${i18n.__(input.var)}

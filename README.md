@@ -1,4 +1,4 @@
-# Boilerplate for Node.js Webapplications with Express.js, Marko.js & Webpack 🧙
+# Boilerplate for Node.js Webapplications with Express, Marko & Vite 🧙
 
 ![Screenshot](app/assets/images/screenshot.png)
 
@@ -6,16 +6,14 @@
 
 - Marko.js 🧩
 - Express.js 🚂
+- Vite ⚡
 - i18n internationalization 🌐
-- Webpack 📦
-- GitHub Primer 🎨
-- FontAwesome 🔣
-- Octicons :octocat:
-- jQuery 🧸
+- Bootstrap 5 🎨
+- FontAwesome 6 🔣
 - Outdated browser warning generated from `.browserslistrc` 🚨
-- Hot reloading after filechanges 🔥
+- Hot module replacement 🔥
 
-This boilerplate works also on a Microsoft IIS server & in Docker container!
+This boilerplate also brings up a Dockerfile for instand use in a Docker container!
 
 ### Use this boilerplate as template
 
@@ -37,7 +35,6 @@ $ git clone https://github.com/YourUsername/YourRepository.git
 - [Components](#components)
 - [Stylesheets](#stylesheets)
 - [Language variables](#language-variables)
-- [Octicon component](https://github.com/Teddy95/octicons-marko)
 - [Environment variables](#environment-variables)
 - [Authentication](#authentication)
 - [Docker container](#docker-container)
@@ -95,7 +92,7 @@ Write your stylesheets in CSS or SCSS and save them to `/app/style` and import t
 
 ### Language variables
 
-All language variables are stored in `/app/locales` and can be accessed by a marko.js component. The boilerplate uses the i18n module for browser. Change language with query parameter `lang` i.e. `http://localhost:8080/?lang=de`
+All language variables are stored in `/app/locales` and can be accessed by a marko.js component. The boilerplate uses an own i18n module for use in server side mode and on the client side. Change language with query parameter `lang` e.g. `http://localhost:8080/?lang=de`
 
 ```marko
 // Simple language variable
@@ -113,10 +110,6 @@ All language variables are stored in `/app/locales` and can be accessed by a mar
 -- ${__('interpolatedGreeting', 'Andre')} // -> Hello Andre!
 -- ${__n('cats', 2)} // -> 2 cats
 ```
-
-### Octicon component
-
-Read documentation of [octicons-marko](https://github.com/Teddy95/octicons-marko). :octocat:
 
 ### Environment variables
 
@@ -160,7 +153,7 @@ You can enable authentication for each route in `/app/routes.js` individually.
 
 #### Add authentication providers
 
-You can add third party authentication in `/app/authentication.js` i.e. for GitHub.
+You can add third party authentication in `/app/authentication.js` e.g. for GitHub.
 
 ```javascript
 module.exports = {

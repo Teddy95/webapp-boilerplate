@@ -1,5 +1,5 @@
-# Starting from Node.js Version 10 (LTS)
-FROM node:10
+# Starting from Node.js Version 18
+FROM node:18
 
 # Create App directory
 WORKDIR /usr/src/app
@@ -14,7 +14,7 @@ RUN npm install
 RUN npm run build
 
 # Expose Server Port
-EXPOSE 8080
+EXPOSE 8080 80
 
 # Start Node App
 CMD ["npm", "run", "start"]

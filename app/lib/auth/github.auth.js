@@ -1,5 +1,5 @@
 // Import strategy
-const GitHubStrategy = require('passport-github').Strategy
+import { Strategy } from 'passport-github'
 
 // Passport authentication strategy configurations
 const config = {
@@ -15,10 +15,10 @@ const authenticationStrategy = (callbackUrl) => {
 		callbackURL: callbackUrl
 	}
 
-	return new GitHubStrategy(strategyConfig, (accessToken, refreshToken, profile, done) => {
+	return new Strategy(strategyConfig, (accessToken, refreshToken, profile, done) => {
 		return done(null, profile)
 	})
 }
 
 // Export authentication strategy function
-module.exports = authenticationStrategy
+export default authenticationStrategy

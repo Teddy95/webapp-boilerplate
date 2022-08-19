@@ -1,10 +1,10 @@
 // Import required modules
-const path = require('path')
-const passport = require('passport')
-const authMethods = require('../authentication')
+import path from 'path'
+import passport from 'passport'
+import authMethods from '../authentication'
 
 // Get configurations
-const config = require('../../config')
+import config from '../../config'
 
 // Get node environment
 const { NODE_ENV } = process.env
@@ -43,9 +43,4 @@ const logout = (req, res) => {
     res.redirect('/')
 }
 
-module.exports = {
-	passport: passport,
-	checkAuthentication: checkAuthentication,
-    logout: logout,
-	callbackUrl: callbackUrl
-}
+export { passport, checkAuthentication, logout, callbackUrl }

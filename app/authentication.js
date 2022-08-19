@@ -1,6 +1,8 @@
-module.exports = {
+import githubAuthMethod from './lib/auth/github.auth.js'
+
+export default {
 	'github': {
-		authMehtodFile: require('./lib/auth/github.auth.js'),
+		authMehtodFile: githubAuthMethod,
 		callbackHttpMethod: 'get'
 	}
 }
