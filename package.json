@@ -9,8 +9,7 @@
         "build:client": "cross-env NODE_ENV=production vite build",
         "build:server": "cross-env NODE_ENV=production vite build --ssr app/router.js",
         "dev": "cross-env NODE_ENV=development node --enable-source-maps app.js",
-        "debug": "node --inspect --enable-source-maps app.js",
-        "deploy": "docker build -t schoeller.azurecr.io/<name> . && docker push schoeller.azurecr.io/<name>"
+        "debug": "node --inspect --enable-source-maps app.js"
     },
     "repository": {
         "type": "git",
