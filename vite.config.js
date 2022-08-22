@@ -1,4 +1,3 @@
-import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import marko from '@marko/vite'
 import nodePolyfills from 'rollup-plugin-polyfill-node'
