@@ -28,7 +28,7 @@ class I18n {
 		this.registerTranslationHelper()
 	}
 
-	registerTranslationHelper () {
+	registerTranslationHelper() {
 		if (typeof window !== 'undefined') {
 			window.i18n = this.getTranslationHelper()
 		} else {
@@ -36,14 +36,14 @@ class I18n {
 		}
 	}
 
-	getTranslationHelper () {
+	getTranslationHelper() {
 		return {
-			__: (key) => this.translate(key),
+			__: (...argv) => this.translate(...argv),
 			__n: (key, number) => this.translatePlurals(key, number)
 		}
 	}
 
-	setLanguage () {
+	setLanguage() {
 		if (typeof window !== 'undefined') {
 			let languageCookie = Cookies.get('i18n')
 
@@ -63,7 +63,7 @@ class I18n {
 		this.catalog = this.locales[0].catalog
 	}
 
-	setPreferredUserLanguage (req) {
+	setPreferredUserLanguage(req) {
 		const userLanguages = req.acceptsLanguages()
 		let localeIndex = null
 		let preferredUserLanguage = null
@@ -84,7 +84,7 @@ class I18n {
 		}
 	}
 
-	translate (key) {
+	translate(key) {
 		const argv = [...arguments]
 		const phrase = this.catalog[key]
 
@@ -96,7 +96,7 @@ class I18n {
 		return sprintf(...argv)
 	}
 
-	translatePlurals (key, number) {
+	translatePlurals(key, number) {
 		const phrase = this.catalog[key]
 		let translateString = ''
 
@@ -110,10 +110,10 @@ class I18n {
 			translateString = key
 		}
 
-		return sprintf(translateString, number)
+		return sprintf(translateString, `${number}`)
 	}
 
-	expressMiddleware (req, res, next) {
+	expressMiddleware(req, res, next) {
 		// Check lang query param
 		if ('lang' in req.query) {
 			if (this.locales.filter((x) => x.code === req.query.lang).length === 1) {
@@ -133,13 +133,13 @@ class I18n {
 			}
 		}
 
-		res.cookie('i18n', this.language, { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: false, secure: true })
+		res.cookie('i18n', this.language, { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: false })
 		res.__ = (key) => this.translate(key)
 		res.__n = (key, number) => this.translatePlurals(key, number)
 		next()
 	}
 
-	getCatalog (langCode) {
+	getCatalog(langCode) {
 		return this.locales.find((x) => x.code === langCode).catalog
 	}
 }
