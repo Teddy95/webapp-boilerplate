@@ -1,6 +1,4 @@
 import favicon from './assets/icons/favicon.svg'
-import './style/style.scss'
-// import appPackage from '../package.json' assert { type: 'json' }
 import appPackage from '../package.json'
 
 <!DOCTYPE html>
@@ -11,9 +9,9 @@ import appPackage from '../package.json'
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>${out.global.title}</title>
         <link rel="shortcut icon" href=favicon type="image/x-icon" />
+        <webpack-assets entry="client" />
     </head>
     <body>
-        <client />
         <if(out.global.outdatedBrowser)>
             <outdated-browser />
         </if>

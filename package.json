@@ -1,15 +1,12 @@
 {
     "name": "webapp-boilerplate",
     "version": "3.0.0",
-    "description": "Boilerplate for Node.js web applications with Express.js, Marko.js & Vite",
-    "main": "app.js",
+    "description": "Boilerplate for Node.js web applications with Express, Marko.js & Webpack",
     "scripts": {
-        "start": "cross-env NODE_ENV=production node --enable-source-maps app.js",
-        "build": "rimraf dist && npm run build:server && npm run build:client",
-        "build:client": "cross-env NODE_ENV=production vite build",
-        "build:server": "cross-env NODE_ENV=production vite build --ssr app/router.js",
-        "dev": "cross-env NODE_ENV=development node --enable-source-maps app.js",
-        "debug": "node --inspect --enable-source-maps app.js"
+        "start": "cross-env NODE_ENV=production node dist/main.js",
+        "build": "rimraf dist && cross-env NODE_ENV=production webpack --progress",
+        "dev": "cross-env NODE_ENV=development webpack serve",
+        "debug": "cross-env INSPECT=1 npm run dev"
     },
     "repository": {
         "type": "git",
@@ -23,10 +20,22 @@
     "homepage": "https://github.com/Teddy95/webapp-boilerplate#readme",
     "devDependencies": {
         "@marko/compiler": "^5.22.6",
-        "@marko/vite": "^2.3.4",
+        "@marko/webpack": "^9.3.0",
+        "autoprefixer": "^10.4.8",
+        "css-loader": "^6.7.1",
+        "css-minimizer-webpack-plugin": "^4.0.0",
+        "marked": "^4.0.19",
+        "mini-css-extract-plugin": "^2.6.1",
+        "postcss-loader": "^7.0.1",
         "rimraf": "^3.0.2",
-        "sass": "^1.54.4",
-        "vite": "^3.0.8"
+        "sass": "^1.54.5",
+        "sass-loader": "^13.0.2",
+        "spawn-server-webpack-plugin": "^6.2.2",
+        "style-loader": "^3.3.1",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0",
+        "webpack-dev-server": "^4.10.0",
+        "webpack-node-externals": "^3.0.0"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.1.2",
@@ -50,8 +59,6 @@
         "passport": "^0.6.0",
         "passport-github": "^1.1.0",
         "pixel-icons": "^1.7.0",
-        "rollup-plugin-polyfill-node": "^0.10.2",
         "sprintf-js": "^1.1.2"
-    },
-    "type": "module"
+    }
 }
