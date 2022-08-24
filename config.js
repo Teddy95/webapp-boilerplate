@@ -1,4 +1,4 @@
-export default {
+module.exports = {
 	name: 'Webapp Boilerplate',
 	port: 8080,
 	path: '',

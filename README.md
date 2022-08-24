@@ -1,4 +1,4 @@
-# Boilerplate for Node.js Webapplications with Express, Marko & Vite 🧙
+# Boilerplate for Node.js Webapplications with Express, Marko & Webpack 🧙
 
 ![Screenshot](app/assets/images/screenshot.png)
 
@@ -6,7 +6,7 @@
 
 - Marko.js 🧩
 - Express.js 🚂
-- Vite ⚡
+- Webpack ⚡
 - i18n internationalization 🌐
 - Bootstrap 5 🎨
 - FontAwesome 6 🔣
