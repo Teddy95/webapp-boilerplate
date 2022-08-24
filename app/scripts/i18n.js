@@ -3,8 +3,8 @@ import { sprintf } from 'sprintf-js'
 import Cookies from 'js-cookie'
 
 // Import language files
-import locales_en from '../locales/en.json' assert { type: 'json' }
-import locales_de from '../locales/de.json' assert { type: 'json' }
+import locales_en from '../locales/en.json'
+import locales_de from '../locales/de.json'
 
 // Define locales
 const locales = [
