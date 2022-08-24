@@ -57,6 +57,13 @@ const main = async () => {
     app.use(markoMiddleware())
 	app.use((req, res, next) => I18n.expressMiddleware(req, res, next))
 
+	if (!isDev) {
+		// Grant access for static files
+		app.use(config.path + '/assets', express.static(path.resolve(__dirname, 'assets')), (req, res, next) => {
+			next()
+		})
+	}
+
 	// Add passport authentication
 	if (config.authentication) {
 		app.use(passport.initialize())
